@@ -1,38 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Georgian Folk Music</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="wrapper">
 
-        <div class="page-bar">
-            <div class="page-bar-sidebar-spacer"></div>
-            <div class="page-bar-content">
-                   <center><h1>Folk Song Map of Georgia</h1></center>  
-            </div>
-            <div class="page-bar-sidebar-spacer"></div>
+  <!-- SECTION 1 -->
+  <section id="section-1" class="content-section">
+    <div class="section-content section-content-1">
+
+      <!-- PINNED VIEWPORT -->
+      <div class="pin-wrap">
+        <!-- Banner fills the pinned viewport -->
+        <div class="banner-image"></div>
+
+        <!-- Overlayed scrollytelling paragraphs -->
+        <div class="fixed-text-container">
+          <p class="intro scroll-para" id="para1">
+            The website offers basic information about Georgian traditional folk music and helps interested audiences discover its unique harmonies.
+          </p>
+          <p class="left-align scroll-para" id="para2">
+            Georgian traditional music (commonly known as polyphony) is a distinct folk singing tradition found across Georgia in the South Caucasus. It encompasses musical traditions performed in four different languages: Abkhazian, Ossetian, Mingrelian, Svan, and Georgian. The first two languages belong to the Northwest Caucasian and Indo-European language families, while the latter two are part of the Georgian (Kartvelian) family.
+          </p>
         </div>
+      </div>
 
-        <div class="container">
-            <div class="sidebar sidebar-left">
+      <!-- Spacer defines how long the pin lasts -->
+      <div id="scrolly-spacer" aria-hidden="true"></div>
+<div id="handoff-spacer" aria-hidden="true"></div>
+      <h2>What do you need to know about Georgian traditional music:</h2>
 
-            </div>
-            <main>
+      <p class="left-align">
+        Traditional Georgian songs are multivocal, typically structured in three parts. Each voice has its own name in Georgian, determined by its range and role in the song:
+      </p>
 
-                <center><div id="map"></div></center>
-            </main>
-                <div class="sidebar sidebar-right">
+      <ul class="list-1">
+        <li>Pirevli (Top) – The highest-pitched voice, equivalent to a soprano</li>
+        <li>Meore (Middle) – Usually in the alto range, often carrying the solo or main melody</li>
+        <li>Bani (Bottom) – Functions as the bass, which can be either a steady drone or highly mobile, depending on the song's origin.</li>
+      </ul>
 
-                </div>
-        </div>
-        
+      <p class="left-align">
+        Georgian traditional music varies across the country, with each region on the map having its own distinct style. The primary division is between Western and Eastern styles:
+      </p>
+
+      <ul class="list-1">
+        <li>
+          Western – Includes music from regions west of the Likhi mountain range, which runs north-south and divides Georgia. This style is marked by a more energetic and lively singing style, often with all three voices maintaining independent yet harmonious melodies.
+        </li>
+        <li>
+          Eastern – Refers to music from regions east of the Likhi range. Eastern Georgian folk music tends to be more drone-based, with the middle voice leading and more fluid melodic elements.
+        </li>
+      </ul>
+
+      <p class="left-align">
+        Additionally, Georgian folk music varies from north to south but generally aligns with the East-West classification. However, <strong>Abkhazian, Svan, and Ossetian</strong> traditions have their own unique sounds, while the mountainous eastern regions place strong emphasis on poetic lyrics and instrumental accompaniment.
+      </p>
     </div>
-    
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="capstone.js"></script>
+  </section>
+
+  <!-- SECTION 2: Interactive Map -->
+  <section id="section-2" class="content-section">
+    <div class="section-content section-content-2">
+      <p class="intro">
+        The map below represents Georgia divided into its historical regions, each characterized by a distinct vocal tradition. Selecting a region will play a representative song from that area.
+      </p>
+
+      <h2></h2>
+      <div id="map"></div>
+
+      <!-- <div id="region-list" class="region-list"></div> -->
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="section-3" class="content-section">
+    <div class="section-content section-content-3">
+      <h2></h2>
+      <p class="left-align">
+        Another important topic of interest is the authentic Georgian tuning system. The scale used in Georgian traditional music has an untempered character. While some debate still exists, recent studies on Georgian tuning models confidently suggest that it deviates significantly from the 12‑TET (twelve‑tone equal temperament) Western system and does so with internal consistency.
+      </p>
+      <p class="left-align">
+        Using a dataset compiled from multitrack audio, video, and descriptive documentation recorded during a 2016 research expedition in Georgia, a pitch contour was generated through pitch‑tracking analysis of the audio material.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section id="section4" class="content-section">
+  <div class="section-content section-content-4">
+    <h2></h2>
+
+    <p class="left-align chart-blurb">
+      The visualization below shows the positions of the Western (cyan) and Georgian (purple) notes—E, D, and C—in relation to the 12‑TET tuning system.
+    </p>
+
+    <p class="left-align chart-instruction">
+      Press the corresponding buttons to hear the sound differences.
+    </p>
+
+    <!-- your SVG goes here -->
+  </div>
+</section>
+
+  <script type="module" src="section4.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="capstone.js"></script>
+
+
+ <div id="audio-player-container" style="position: fixed; top: 20px; right: 20px; width: 250px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 10px; display: none; z-index: 999;">
+  <button id="close-player" style="position:absolute; top:5px; right:10px; border:none; background:none; font-size:18px; cursor:pointer;">×</button>
+  <div id="now-playing" style="font-size: 14px; margin-bottom: 5px;">Now Playing</div>
+  <audio id="custom-audio" controls style="width: 100%;">
+    Your browser does not support the audio element.
+  </audio>
+    <div id="map-tooltip" style="position: absolute; display: none; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 10px; pointer-events: none; z-index: 1000; font-size: 14px; max-width: 250px;"></div>
+  </div>
+    <script>
+document.getElementById("close-player").addEventListener("click", function () {
+  const player = document.getElementById("custom-audio");
+  player.pause();
+  player.currentTime = 0;
+  document.getElementById("audio-player-container").style.display = "none";
+});
+</script>
+  
 </body>
 </html>

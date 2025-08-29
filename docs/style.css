@@ -49,7 +49,7 @@ p {
 .pin-wrap .banner-image {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 370px;          /* explicit height so it shows (not fullscreen) */
+  height: 380px;          /* explicit height so it shows (not fullscreen) */
   z-index: 0;
 }
 
@@ -245,46 +245,30 @@ margin-bottom: 1rem;
   padding-right: 1rem;
 }
 
-/* ======================================
-   SECTION 4
-====================================== */
-/* make the container a positioning context */
-#section4 .section-content-4 { position: relative; }
+/* === SECTION 4 additions === */
+#tonalChart-wrap {
+  max-width: 1000px;      /* controls overall chart width */
+  margin: 0 auto 360px;   /* center + leave room below */
+  position: relative;
+}
 
-/* keep svg as base layer */
-#section4 svg { 
+#tonalChart-wrap svg {
+  width: 100%;
+  height: auto;
   display: block;
+  overflow: visible;      /* labels can breathe */
+}
+
+/* Optional: slightly reduce the big top margin you had on any SVGs in Section 4 */
+#section4 svg {
   margin-top: 180px;
- }
-
-/* paragraph #1 controls */
-#section4 .chart-blurb {
-  position: absolute;
-  top: 60px;     /* move vertically */
-  left: 250px;    /* move horizontally */
-  max-width: 160ch;
-  font-size: 1.3rem;
-  margin: 0;
-  
-  z-index: 2;
 }
 
-/* paragraph #2 controls */
-#section4 .chart-instruction {
-  position: absolute;
-  top: 320px;     /* independent from the first */
-  left: 500px;
-  max-width: 36ch;
-  font-size: 1.8rem;
-  margin: 0;
-  color: #0b4d42;
-  z-index: 2;
-  opacity: 0.9;  /* example: slightly dimmer */
-}
-
-/* optional: keep svg interactive under the text */
+/* Keep your paragraphs floating above the chart */
 #section4 .chart-blurb,
-#section4 .chart-instruction { pointer-events: none; }
+#section4 .chart-instruction {
+  pointer-events: none;
+}
 
 /* ======================================
    OTHER ELEMENTS
@@ -341,4 +325,103 @@ margin-bottom: 1rem;
 .pin-wrap.banner-fixed .banner-image {
   will-change: transform;
   transition: transform 480ms ease;
+}
+
+/* REGION LIST AND COLORS */
+#region-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3rem auto 5rem;
+  max-width: 1000px;
+  font-size: 1.1rem;
+}
+
+.region-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.region-item {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.region-item:hover {
+  background: rgba(0,0,0,0.08);
+}
+
+/* Default (desktop) */
+#map, #tonalChart {
+  width: 100%;
+  height: 600px;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  #map, #tonalChart {
+    height: 400px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #map, #tonalChart {
+    height: 300px;
+  }
+  text, button {
+    font-size: 14px;
+  }
+}
+/* keep map + list stacked tightly and centered */
+#map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* region list right under the map, tighter spacing */
+#region-list {
+  width: 100%;
+  max-width: 1200px;         /* matches your SVG width */
+  margin-top: 10px;          /* bring it closer to the map (reduce/increase as needed) */
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;   /* center the 4 columns */
+  column-gap: 12px;          /* tighten columns (try 8px for even closer) */
+  row-gap: 6px;
+}
+
+/* column & item compaction */
+#region-list .region-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;                  /* tighten vertical spacing within a column */
+}
+
+#region-list .region-item {
+  padding: 5px 6px;          /* small hit area without looking bulky */
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;       /* prevents wrapping; remove if you prefer wrapping */
+}
+#section4 .chart-blurb,
+#section4 .chart-instruction {
+  text-align: center;
+  max-width: 900px;   /* keeps lines from stretching too wide */
+  margin: 0 auto 10em; /* centers block itself + spacing below */
+  margin-top: -100px;
+  width: 80%;
+  margin-bottom: 2px;
+  padding-top: 100px;
+  line-height: 1;
+  margin-left: 100; margin-right: 100;
+  position: relative; top: -100px;
+  position: relative; top: 150px;
+
+
+  
 }

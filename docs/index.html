@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Georgian Folk Music</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:,">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
             The website offers basic information about Georgian traditional folk music and helps interested audiences discover its unique harmonies.
           </p>
           <p class="left-align scroll-para" id="para2">
-            Georgian traditional music (commonly known as polyphony) is a distinct folk singing tradition found across Georgia in the South Caucasus. It encompasses musical traditions performed in four different languages: Abkhazian, Ossetian, Mingrelian, Svan, and Georgian. The first two languages belong to the Northwest Caucasian and Indo-European language families, while the latter two are part of the Georgian (Kartvelian) family.
+            Georgian traditional music is a folk singing tradition found across Georgia in the South Caucasus. It encompasses musical traditions performed in four different languages: Abkhazian, Ossetian, Mingrelian, Svan, and Georgian. The first two languages belong to the Northwest Caucasian and Indo-European language families, while the latter two are part of the Georgian (Kartvelian) family.
           </p>
         </div>
       </div>
@@ -71,6 +72,7 @@
 
       <h2></h2>
       <div id="map"></div>
+      <div id="region-list"></div>
 
       <!-- <div id="region-list" class="region-list"></div> -->
     </div>
@@ -90,25 +92,25 @@
   </section>
 
   <!-- SECTION 4 -->
-  <section id="section4" class="content-section">
+<section id="section4" class="content-section">
   <div class="section-content section-content-4">
     <h2></h2>
 
     <p class="left-align chart-blurb">
-      The visualization below shows the positions of the Western (cyan) and Georgian (purple) notes—E, D, and C—in relation to the 12‑TET tuning system.
-    </p>
+      The visualization below represents Standard Western Tuning(12-TeT) and Georgian scale degrees.
 
     <p class="left-align chart-instruction">
-      Press the corresponding buttons to hear the sound differences.
+      Press the corresponding buttons to hear each system played.
     </p>
 
-    <!-- your SVG goes here -->
+    <!-- NEW: tonalChart container -->
+    <div id="tonalChart-wrap" aria-label="Tonal chart tuning comparator"></div>
   </div>
 </section>
 
-  <script type="module" src="section4.js"></script>
+  <script type="module" src="chart_section4.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="capstone.js"></script>
+  <script src="map_section2.js"></script>
 
 
  <div id="audio-player-container" style="position: fixed; top: 20px; right: 20px; width: 250px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 10px; display: none; z-index: 999;">
@@ -119,14 +121,6 @@
   </audio>
     <div id="map-tooltip" style="position: absolute; display: none; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 10px; pointer-events: none; z-index: 1000; font-size: 14px; max-width: 250px;"></div>
   </div>
-    <script>
-document.getElementById("close-player").addEventListener("click", function () {
-  const player = document.getElementById("custom-audio");
-  player.pause();
-  player.currentTime = 0;
-  document.getElementById("audio-player-container").style.display = "none";
-});
-</script>
-  
+
 </body>
 </html>

@@ -1,427 +1,645 @@
-/* ======================================
-   GLOBAL STYLES
-====================================== */
-body {
-  font-family: "Lora", serif;
-  font-size: 1.15rem;
-  line-height: 1.75rem;
-  color: #050505;
-  background-color: #d0d9cd;
-  -webkit-font-smoothing: antialiased;
+/* ===================== */
+/* THEME & TWEAKABLE VARS*/
+/* ===================== */
+:root{
+  /* Site theme */
+  --tab-bg:#8fb7a5;
+  --tab-bg-hover:#61977e;
+  --tab-bg-active:#426756;
+  --tab-border:#426756;
+  --page-bg:#d0d9cd;
+  --text:#434040;
+  /* #050505; */
+  --content-max: 1000px;
+
+  /* Map section layout (list + popovers) */
+  --list-width: 160px;          /* width of the region name column */
+  --col-gap: 20px;              /* gap between list and popovers panel */
+
+  /* Popover card styling (region list) */
+  /* --pop-bg:#d0d9cd; */
+  /* --pop-text:#4d4949; */
+  /* --pop-border:#d0d9cd; */
+  /* --pop-radius: 1px; */
+  /* --pop-shadow: 0 4px 14px rgba(0,0,0,.12); */
+  /* --pop-padding: 12px 14px; */
+  /* --pop-maxw: 790px;            max width for each popover card */
+  /* --pop-title-size: 1rem;       title font size */
+  /* --pop-body-size: .93rem;      body font size */
+  /* --pop-font: "Lora", serif; */
+
+  /* Audio player theme (EDIT THESE for colors) */
+  --audio-bg:#dbe0da;
+  --audio-accent:#426756;
+  --audio-knob:#426756;
+  --audio-text:#434040;
+}
+
+/* ====== Global ====== */
+* { box-sizing: border-box; }
+
+html, body {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
 }
 
-/* Reset default paragraph margin */
-p {
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+body {
+  font-family: "Lora", serif;
+  font-size: clamp(15px, 1.1vw + 0.5rem, 18px);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--page-bg);
 }
 
-/* Generic intro text (applies to all sections unless overridden) */
-.content-section p.intro {
-  padding: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 10vh;
-  margin-top: 250px;
-  font-size: 1.3rem;
-  padding-left: 11rem;
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }
 
-/* ======================================
-   SCROLLYTELLING (Section 1)
-   Pinned banner + cross-fade para1 → para2 → fade out, then release.
-====================================== */
+/* ====== Banner ====== */
+.banner-image{
+  width: 100%;
+  height: 320px;
 
-/* Sticky viewport for Section 1 */
-.pin-wrap {
+  aspect-ratio: 16/9;
+  background: url('img/banner_v3.jpg') center/cover no-repeat;
+}
+@media (max-width: 480px){
+  .banner-image { aspect-ratio: 3/2; }
+}
+
+/* ====== Tabs (sticky) ====== */
+.tablist{
   position: sticky;
   top: 0;
-  height: 100vh;          /* keep section stuck until spacer consumed */
-  overflow: hidden;
-  z-index: 5;
-}
-
-/* Banner inside the pinned viewport — keep your original 370px height */
-.pin-wrap .banner-image {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 380px;          /* explicit height so it shows (not fullscreen) */
-  z-index: 0;
-}
-
-/* Overlayed text container centered over the banner */
-.fixed-text-container {
-  position: absolute;     /* fills the sticky pin area */
-  inset: 0;
+  z-index: 1000;
+  padding-top: env(safe-area-inset-top);
   display: flex;
-  align-items: center;    /* vertical center */
-  justify-content: flex-start;
-  z-index: 1;
-  pointer-events: none;   /* not interactive while overlaid */
+  gap: .25rem;
+  flex-wrap: wrap;
+  background: var(--tab-bg);
+  border: 1px solid var(--tab-bg);
+  border-radius: .75rem .75rem 0 0;
+  padding: .25rem;
+  margin: 0 auto;
+  width: min(100%, 1200px);
+}
+.tablist button[role="tab"]{
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  transition: background .2s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
+.tablist button[role="tab"]:hover{
+  background: var(--tab-bg-hover);
+}
+.tablist button[role="tab"][aria-selected="true"]{
+  background: var(--tab-bg-active);
+}
+.tablist button[role="tab"]:focus-visible{
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
-/* Overlap paragraphs and control visibility (fade only, no slide) */
-.scroll-para {
+/* ====== Panels ====== */
+.panels{
+  border: 1px solid var(--tab-border);
+  border-top: none;
+  border-radius: 0 0 .0rem .75rem;
+  background:#d0d9cd;
+  margin: 0 auto 4rem;
+  width: min(100%, 1200px);
+}
+[role="tabpanel"]{
+  display: none;
+  padding: clamp(12px, 2vw, 24px);
+  min-height: 40vh;
+}
+[role="tabpanel"][data-active="true"]{
+  display: block;
+}
+
+/* ====== 1ST TAB ====== */
+#panel-info {
+  padding-bottom: 20rem;
+}
+
+.panel-content{
+  max-width: var(--content-max);
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 10rem;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.panel-content h4{
+  margin-bottom: 0.9rem;
+}
+
+/* Indented list items */
+ul li.indent {
+  text-indent: 1rem;
+}
+
+/* ====== 2ND TAB: MAP + LIST/POPOVER ====== */
+
+#panel-map .panel-content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+/* Make map-root anchor for overlays (macro panels) */
+#map-root{
+  position: relative;
+}
+#panel-map{
+  padding-bottom: 40rem;
+  padding-top: 0rem;
+}
+
+/* Left: one-column list */
+#region-list{
+  display: block;
+}
+#region-list .region-item{
+  display: block;
+  padding: 8px 10px;
+  line-height: 1.2;
+  cursor: pointer;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+#region-list .region-item:hover,
+#region-list .region-item.is-active{
+  background: rgba(0,0,0,0.06);
+}
+
+
+
+/* Right: popover column (relative so we can absolutely place the popover) */
+#region-popovers{
+  position: relative;
+  min-height: 40px;
+  /* z-index: 1000; */
+}
+
+/* Single popover box (absolute, aligned to list row by JS) */
+.region-popover{
   position: absolute;
   left: 0;
-  right: 0;
-  opacity: 0;             /* JS animates */
-  transition: opacity 320ms ease;
-  text-align: justify;
-  will-change: opacity;
+  width: min(var(--pop-maxw, 720px), 100%);
+  max-width: 100%;
+
+  background: var(--pop-bg, #fff);
+  color: var(--pop-fg, #202020);
+  border: 1px solid var(--pop-border, #ccc);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  padding: var(--pop-pad, 12px 14px);
+
+  font-family: var(--pop-font, "Lora", serif);
+  font-size: var(--pop-size, 14px);
+  line-height: 1.45;
+
+  z-index: 10;
+}
+.region-popover .pop-title{
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+.region-popover .pop-body{
+  font-weight: 400;
+}
+/* ეს აკონტროლებს რუკის ლეიბლებს */
+#geo-map .region-label {
+  font-family: "Lora", serif;
+  font-weight: 570;
+  font-size: 17px;      /* change size here */
+  fill: #454242;        /* text color for SVG */
+  pointer-events: none; /* so labels don't block hover on regions */
 }
 
-/* Paragraph paddings */
-#para1 {
-  padding-left: 0rem;
-  font-size: 1.3rem;
-  max-width: 120ch;
-  
-}
-#para2 {
 
-  font-size: 1.3rem;
-  left: -10%;
-  right: 5%;
-  top: 60%;
-  transform: translateY(-50%); /* vertical centering only */
-  max-width: none;             /* let the width be set by left/right */
-  padding-left: 0;
- text-align: justify;
-  word-spacing: 20px;
+/* Tighten on narrow screens */
+@media (max-width: 640px){
+  .list-and-popovers{
+    grid-template-columns: var(--list-width, 220px) 1fr;
+  }
+  #region-list{
+    width: 100%;
+  }
+  #region-popovers{
+    width: 100%;
+    position: relative;
+    min-height: 100px;
+  }
 }
 
-/* Spacer length is updated via JS; fallback here */
-#scrolly-spacer {
-  height: 160vh;
-}
+/* ====== Macro panels (for macro labels around the map) ====== */
 
-/* Ensure Section 1 itself doesn't add extra scroll beyond the spacer */
-#section-1 {
-  padding-bottom: 0;
-}
-
-/* ======================================
-   BANNER (base styles + decorative lines)
-====================================== */
-.banner-image {
-  background-image: url('img/banner_v3.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  width: 100%;
-  height: 370px;  /* base height when not overridden by pin */
-}
-
-/* Decorative horizontal lines below banner */
-/* .banner-image::after {
-  content: "";
+/* Overlay layer inside #map-root */
+.macro-panels-layer{
   position: absolute;
-  top: 460px; /* <- set vertical position where you want the “stop” line */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-  /* width: 90%; */
-  /* height: 1.2px; */
-  /* background-color: #560b0b; */
-  /* z-index: 10; make sure it’s above text */
-/* } */ */
-
-/* .section-content-1 {
-  position: relative;
-  overflow: hidden; /* hides text when it goes past the line */
-/* } */ */
-
-/* ======================================
-   SECTION 1 (content)
-====================================== */
-#section-1 {
-  padding-bottom: 0rem; /* increase this for more gap */
+  inset: 0;
+  pointer-events: none;   /* panels themselves re-enable pointer-events */
 }
 
-#section-1 .section-content-1 p {
-  text-align: justify;
-  padding-left: 20.5rem;
-max-width: 900ch !important;
-  margin: 1em 0;
-}
-#section-1 .section-content-1 p.left-align:not(.scroll-para) {
-  padding-left: 10rem;   /* left gutter */
-  max-width: 90ch;       /* widen/narrow text box */
-  margin: 2rem 0;        /* vertical spacing between paragraphs */
-  line-height: 1.8;      /* readability */
-  text-align: left;      /* set to center/right if needed */
-}
-
-#section-1 .section-content-1 p.intro {
-  margin-top: 220px;
-  margin-bottom: 0rem;
-  font-size: 1.4rem;
-  padding-left: 10rem;
-}
-
-#section-1 .section-content-1 h2 {
-  text-align: left;
-  max-width: 90ch;
-  padding-left: 10rem;
-  font-size: 1.3rem;
-  margin-top: 20em;
-}
-
-#section-1 .section-content-1 ul {
-  padding-left: 20rem;
-  margin-left: 5rem;
-  margin-right: 1rem;
-  text-align: left;
-}
-
-#section-1 .section-content-1 .list-1 li {
-margin-bottom: 1rem;
-  padding-left: 1rem;   /* push text inward from left */
-  padding-right: 2rem;  /* space from right */
-  text-align: left;     /* or "right" to align to the right side */
+/* The macro panel itself */
+.macro-panel{
+  position: absolute;
+  max-width: 1000px;
+  background: #e7e7de;
+  color: #202020;
+  border: 4px solid #a2beac;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  padding-left: 20px;
+  padding-right: 34px;
+  font-family: "Lora", serif;
+  font-size: 1rem;
+  line-height: 1.3;
   
+  z-index: 30;
+  pointer-events: auto;      /* clickable */
 }
 
-/* ======================================
-   SECTION 2
-====================================== */
-#section-2 .section-content-2 p.intro {
-  margin-top: 300px;
-  margin-bottom: 50px;
-  margin-right: 10rem;
-  font-size: 1.5rem;
-  padding-left: 13rem;
-  max-width: 120ch;
-  text-align: left;
+/* close (X) button in macro panels */
+.macro-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
 }
 
-#section-2 .section-content-2 h2 {
-  text-align: left;
-  padding-left: 21.5rem;
-  font-size: 1.3rem;
-  margin-top: 5em;
+/* basic spacing inside */
+.macro-panel p{
+  margin: 0 Trem 0;
+  margin-top: 0;
 }
 
-#section-2 #map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-top: 150px;
-  margin-bottom: 400px;
+/* position variants (we rely on JS for base top/left, transform just nudges) */
+.macro-panel[data-pos="top-left"]{
+  transform: translate(0, -100%);
+  margin-top: -8px;
+}
+.macro-panel[data-pos="top-right"]{
+  transform: translate(-100%, -100%);
+  margin-top: -8px;
+}
+.macro-panel[data-pos="bottom-left"]{
+  transform: translate(0, 8px);
+}
+.macro-panel[data-pos="bottom-right"]{
+  transform: translate(-100%, 8px);
 }
 
-/* ======================================
-   SECTION 3
-====================================== */
-#section-3 .section-content-3 p.left-align {
-  text-align: left;
-  font-size: 1.3rem;
-  padding-left: 15.5rem;
-  padding-right: 15rem;
-  max-width: 120ch;
-  margin: em 100;
-}
-
-#section-3 .section-content-3 h2 {
-  text-align: left;
-  padding-left: 21.5rem;
-  font-size: 1.3rem;
-  margin-top: 5em;
-}
-
-#section-3 .section-content-3 ul {
-  padding-left: 5rem;
-  margin-left: 1rem;
-  text-align: left;
-}
-
-#section-3 .section-content-3 .list-1 li {
-  margin-bottom: 1rem;
-  padding-right: 1rem;
-}
-
-/* === SECTION 4 additions === */
-#tonalChart-wrap {
-  max-width: 1000px;      /* controls overall chart width */
-  margin: 0 auto 360px;   /* center + leave room below */
-  position: relative;
-}
-
-#tonalChart-wrap svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;      /* labels can breathe */
-}
-
-/* Optional: slightly reduce the big top margin you had on any SVGs in Section 4 */
-#section4 svg {
-  margin-top: 180px;
-}
-
-/* Keep your paragraphs floating above the chart */
-#section4 .chart-blurb,
-#section4 .chart-instruction {
-  pointer-events: none;
-}
-
-/* ======================================
-   OTHER ELEMENTS
-====================================== */
-
-
-#map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
-  margin-top: 600px;
-}
-
-/* Tooltip styles for neumorphic look and instant visibility */
+/* ====== Map tooltip (for on-map hover) ====== */
 #map-tooltip {
-  opacity: 1;
+  position: absolute;
+  display: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 10px;
+  pointer-events: none;
+  z-index: 1000;
+  font-size: 14px;
+  max-width: 260px;
   border: 1px solid #ccc;
   color: #202020;
   font-family: "Lora", serif;
 }
-/* Smooth handoff visuals */
-.pin-wrap { overflow: hidden; }                      /* clip text under banner */
-.pin-wrap .banner-image {
-  will-change: transform;
-  transform: translateY(0);                          /* JS animates this */
+
+/* Labels on the SVG map */
+.region-label{
+  font-size: clamp(10px, 1.4vw, 16px);
+  fill: #525050ff;
+  text-anchor: middle;
 }
 
-/* Start the content below hidden; JS reveals it during handoff */
-#section-1 .section-content-1 > h2,
-#section-1 .section-content-1 > p.left-align:not(.scroll-para),
-#section-1 .section-content-1 > ul.list-1 {
-  opacity: 0;
-  transform: translateY(16px);
-  will-change: opacity, transform;
-  position: relative;
-  z-index: 1;
-  padding-left: 15rem;  /* smaller number → bullets further left */
-  margin-left: 10;      /* adjust if needed */ 
-  margin-right: 15rem;                                       /* under the banner */
+/* Macro labels on the SVG map (base style; per-label color set in JS) */
+.macro-label{
+  font-weight: 700;
+  font-size: 24px;
+  text-anchor: middle;
+  /* margin-bottom: 10px; */
 }
 
-/* Keep banner above while it freezes */
-.pin-wrap .banner-image { z-index: 2; position: absolute; inset: 0 auto auto 0; right: 0; }
-/* Keep banner on top while frozen; allow smooth slide-out when map appears */
-.pin-wrap.banner-fixed {
-  position: fixed;
-  top: 0;
-  left: 0; right: 0;
-  height: 100vh;
-  z-index: 8;
-  pointer-events: none;
+/* ====== Tonal Chart ====== */
+
+.chart-legend {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  padding-bottom: 0px;
+  color:var(--text);
 }
-.pin-wrap.banner-fixed .banner-image {
-  will-change: transform;
-  transition: transform 480ms ease;
+.chart-instr{
+  max-width: 610px;
+  margin: 0 auto;
+  font-size: 17px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  color:#2c2a2a;
 }
 
-/* REGION LIST AND COLORS */
-#region-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin: 3rem auto 5rem;
-  max-width: 1000px;
-  font-size: 1.1rem;
-}
-
-.region-col {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.region-item {
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
-
-.region-item:hover {
-  background: rgba(0,0,0,0.08);
-}
-
-/* Default (desktop) */
-#map, #tonalChart {
-  width: 100%;
-  height: 600px;
-}
-
-/* Tablets */
-@media (max-width: 1024px) {
-  #map, #tonalChart {
-    height: 400px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  #map, #tonalChart {
-    height: 300px;
-  }
-  text, button {
-    font-size: 14px;
-  }
-}
-/* keep map + list stacked tightly and centered */
-#map {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* region list right under the map, tighter spacing */
-#region-list {
-  width: 100%;
-  max-width: 1200px;         /* matches your SVG width */
-  margin-top: 10px;          /* bring it closer to the map (reduce/increase as needed) */
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  justify-content: center;   /* center the 4 columns */
-  column-gap: 12px;          /* tighten columns (try 8px for even closer) */
-  row-gap: 6px;
-}
-
-/* column & item compaction */
-#region-list .region-col {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;                  /* tighten vertical spacing within a column */
-}
-
-#region-list .region-item {
-  padding: 5px 6px;          /* small hit area without looking bulky */
-  line-height: 1.2;
-  cursor: pointer;
-  white-space: nowrap;       /* prevents wrapping; remove if you prefer wrapping */
-}
-#section4 .chart-blurb,
-#section4 .chart-instruction {
-  text-align: center;
-  max-width: 900px;   /* keeps lines from stretching too wide */
-  margin: 0 auto 10em; /* centers block itself + spacing below */
-  margin-top: -100px;
+.tonal-svg {
+  /* height: 80%; */
   width: 80%;
-  margin-bottom: 2px;
-  padding-top: 100px;
-  line-height: 1;
-  margin-left: 100; margin-right: 100;
-  position: relative; top: -100px;
-  position: relative; top: 150px;
+  max-width: 1100px;
+  display: block;
+  margin: 0 auto;
+}
 
 
+
+/* If you want it movable inside the Tonal panel only */
+#panel-tonal {
+  position: relative;
+}
+.icon-header {
+  position: absolute;   /* or fixed if you want it glued to the viewport */
+  top: -39px;            /* change these numbers to move it */
+  left: 492px;
+  cursor: pointer;
+  z-index: 20;
+}
+.tonal-icon-header {
+  position: absolute;   /* or fixed if you want it glued to the viewport */
+  top: -35px;            /* change these numbers to move it */
+  left: 382px;
+  cursor: pointer;
+  z-index: 20;
+}
+.tonal-icon-header2 {
+  position: absolute;   /* or fixed if you want it glued to the viewport */
+  top: -30px;            /* change these numbers to move it */
+  left: 360px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* ====== Audio player ====== */
+.audio-player{
   
+  position: fixed;
+  top: 10px;
+  left: auto;
+  right: 16px;   
+  width: 530px;       
+  padding: opx;
+  background: #d3dbd1;
+  border:4px solid #5a7263;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  z-index: 1500;
+  display: none;
+
+  /* display: flex; */
+  justify-content: center;
+}
+
+/* ეს გლობალივით არი ყველაფერი ამაში ზის */
+.audio-inner{
+  overflow: visible !important;
+  width: 500px;         /* controls content width */
+  max-width: 100%;      /* keeps it safe on small screens */
+  /* background-color: #bbd2b5; */
+}
+
+
+
+/* დახურვის ღილაკი X */
+
+.audio-close{
+  position:absolute;
+  top:7px;
+  right:10px;
+  border:none;
+  background:none;
+  font-size:25px;
+  cursor:pointer;
+  line-height: 1;
+  /* background-color: #bbd2b5; */
+}
+/* ეს მთელ ფლეიერის კონტროლერს ვრაპავს და აკონტროლებს შესაბამისად */
+.audio-border-wrap {
+  /* border: 2px solid #5a7263;     your color */
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;           /* optional */
+  padding: 0px; 
+  margin-left: 0.2rem;                 /* creates space for the border */
+  display: block;
+}
+/* This is responsible for "now playing" text */
+.audio-now{
+  font-size: 17px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  font-weight: 550;
+  color:#434040
+}
+/* ეს ყველა პარაგრაფს ამოძრავებს.დროფ დაუნის კონტროლი ქვემოთ არის მაგრამ ესეც აკონტროლებს*/
+.audio-accordion p {
+  margin-top: 0;
+  margin-left: 0rem;
+}
+
+/* ეს კააკონტროლებს მუსიკის დესკრიფცია ტექსტს */
+.audio-intro {
+  text-align: justify;
+  margin-bottom: 20px;
+  margin: left 0px;
+  font-weight: 500;       /* optional */
+  font-size: 1rem;        /* optional */
+  color: #3a3838;            /* optional */
+}
+
+
+
+
+
+
+/* new: description inside player ეს დროფ დაუნია სადაც მუსიკალური ტრადიციის დახასიათებაა*/
+.audio-description{
+  font-size: 16px;
+  color:#434040;
+  line-height: 1.2;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  margin-left: 20px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* Now playing control #bbd2b5.  ეს იმ ოვალურ პანელს ფარავს (კიარა და მის უკან ზის)თუ კი ფერს მივცემთ*/
+audio {
+  width: 95%;
+  display: block;
+  padding: 0;
+  margin-top: 0px;
+  margin-left: 0px;
+  background-color: transparent;
+}
+
+/* === Audio player color control (WebKit-based browsers) === */
+
+/* Panel background for the built-in controls area */
+audio::-webkit-media-controls-panel {
+  /* background-color: #5ba748; */
+  color: #585e56;
+  padding: 0 0px;
+  width: 20px;
+  margin: 10px; /* ეს პროგრეს ბარს და ფლეი ღილაკს ავიწროვებს*/
+  border: 0px;
+  border-radius: 10px;
+}
+
+/* ოვალური პანელი რაზე ფლეი ზის */
+audio::-webkit-media-controls-enclosure {
+  background-color:  #d0d9cd;
+  border-radius: 20px;
+  height: px;
+  margin-left: 0px;
+  border: 100px;
+}
+
+
+
+/* Play/pause button circle */
+audio::-webkit-media-controls-play-button {
+  background-color: #b5b5b5;
+  border-radius: 60%;
+  transform: scale(0.9);
+  margin-left: 0px;
+}
+
+/* Timeline/progress bar track თცითონ ის ხაზი(შავიდ) და მუქი მწვანე გარსი*/
+audio::-webkit-media-controls-timeline {
+  background-color: #b5b5b5;
+  height: 2px;          /* sometimes works (Chrome = limited)*/
+ margin: 0px;           /* small effect */
+  padding: 11px;           /* small effect */
+  border-radius: 30px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+/* Time text (current time / remaining) */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: #111010;
+  font-size: 11px; 
+  padding: 01 10px;  
+  /* background-color: #bbd2b5; */
+     /* tiny bit less space, if browser respects it */
+}
+
+/* ====== Color helpers used in text ====== */
+.beige { color: #cd9138; font-size: 20pt; font-weight: bold; }
+.green { color: #2e9a78; font-size: 20pt; font-weight: bold; }
+.blue  { color: #4562a6; font-size: 20pt; font-weight: bold; }
+.pink  { color: #c3679f; font-size: 20pt; font-weight: bold; }
+
+/* ====== Accordions (h4 + any custom blocks) ====== */
+
+/* If you still use accordion-blocks somewhere ეს არის ჩამოშლადი ბლოკი სადაც დეტალებია კუთხურ ტრადიციაზე/
+აღმოჩნდა რომ მუსიკის აღწერაა this song is unbeleavable*/
+.accordion-block{
+  margin-top: 1px;
+  font-size: 1.2rem;
+  font-display: #686666;
+  margin-bottom: 1rem;
+  /* background-color: #bbd2b5; */
+  margin-left: 1rem;
+}
+
+/* Base accordion header – used by h4 AND any custom blocks */
+.accordion-header{
+  cursor: pointer;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  /* background-color: #bbd2b5; */
+  padding-bottom: 0.2rem;
+}
+
+/* Only h4 headers get this centering/grey color (Tab 1) */
+h4.accordion-header{
+  text-align: justify;
+  color: #686666;
+  font-size: 1.4rem;
+  bottom: 0rem;
+  left: 2rem;
+  top: 1rem;
+}
+
+/* Arrow only for h4 accordions (NOT for macro labels) */
+h4.accordion-header::after{
+  content: "▾";
+  position: absolute;
+right: 63rem;  
+top: 20%;
+  transform: translateY(-40%);
+  font-size: 2rem;
+  color: #8fb7a5;
+}
+
+/* panel container */
+.accordion-panel{
+  
+  max-height: 0;
+  font-size: 1.1rem;
+  overflow: hidden;
+  transition: max-height 0.20s ease;
+}
+
+/* opened panel */
+.accordion-panel.is-open{
+  max-height: 2000px;
+  padding: 0rem 0 0rem;
+  border: 1px solid #3a6040;  /* change color */
+  border-radius: 10px;        /* optional */
+  padding: 20px;              /* space inside box */
+}
+#audio-player-container .accordion-panel.is-open {
+  border: none !important;
+  padding: 0 !important;        /* optional – match your original */
+  border-radius: 0 !important;  /* optional */
+}
+
+/* Georgian script inside suffixes */
+.ka {
+  font-size: 0.85em;   /* shrink slightly vs Latin */
+  font-style: normal;  /* keep non-italic; change to italic if you want */
+}
+
+/* ====== Reduced motion ====== */
+@media (prefers-reduced-motion: reduce){
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

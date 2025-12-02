@@ -392,7 +392,7 @@ ul li.indent {
 .tonal-icon-header2 {
   position: absolute;   /* or fixed if you want it glued to the viewport */
   top: -30px;            /* change these numbers to move it */
-  left: 360px;
+  left: 325px;
   cursor: pointer;
   z-index: 20;
 }
@@ -609,21 +609,23 @@ top: 20%;
 
 /* panel container */
 .accordion-panel{
-  
   max-height: 0;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: max-height 0.20s ease;
+  transition: max-height 0.20s ease, opacity 0.05s ease;
+  opacity: 0;                   /* text hidden when closed */
+  padding: 0;                   /* prevents leftover padding glitch */
 }
 
 /* opened panel */
 .accordion-panel.is-open{
   max-height: 2000px;
-  padding: 0rem 0 0rem;
-  border: 1px solid #3a6040;  /* change color */
-  border-radius: 10px;        /* optional */
-  padding: 20px;              /* space inside box */
+  opacity: 1;                   /* text appears instantly */
+  border: 1px solid #3a6040;
+  border-radius: 10px;
+  padding: 20px;
 }
+
 #audio-player-container .accordion-panel.is-open {
   border: none !important;
   padding: 0 !important;        /* optional – match your original */

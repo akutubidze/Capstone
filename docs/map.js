@@ -115,10 +115,9 @@
 
     //ეს აკონტროლებს მთიულეთის და ფშავის ლეიბლებს//
     const labelOffsets = {
-  "Mtiuleti": { dx: 0,  dy: -12 },   // move up a bit
-  "Pshavi":   { dx: 0,  dy:  12 }    // move down a bit
-};
-
+      "Mtiuleti": { dx: 0,  dy: -12 },   // move up a bit
+      "Pshavi":   { dx: 0,  dy:  12 }    // move down a bit
+    };
 
     function getLabel(name) {
       return prettyLabels[name] || name;
@@ -149,7 +148,6 @@
 
     // Text content for macro panels (no titles inside, only body)
     const macroDescriptions = {
-
       "Western Georgia": 
       `
 
@@ -423,11 +421,9 @@ often marked by pitch vibration and melismatic ornamentation.
           d3.select(this)
             .attr("fill", d3.color(base).brighter(0.8))
             .attr("filter", "url(#glow)");
-          tooltip.style("display", "block")
-            .html(`<strong>${d.properties.name}</strong>`);
-          positionTooltip(event);
+          // tooltip disabled
         })
-        .on("pointermove", positionTooltip)
+        // .on("pointermove", positionTooltip) // tooltip disabled
         .on("pointerleave", function (event, d) {
           if (currentRegion !== d.properties.name) {
             d3.select(this)
@@ -436,7 +432,7 @@ often marked by pitch vibration and melismatic ornamentation.
           } else {
             d3.select(this).attr("filter", "url(#neumorphic-pressed)");
           }
-          tooltip.style("display", "none");
+          // tooltip.style("display", "none"); // tooltip disabled
         })
         .on("click", function (event, d) {
           regions.attr("fill", dd => safeColor(dd.properties.name))
@@ -449,38 +445,37 @@ often marked by pitch vibration and melismatic ornamentation.
 
       // --- Region labels (on larger shapes) ------------------------------
       gLabels.selectAll("text.region-label")
-  .data(geoData.features.filter(f => {
-    const b = path.bounds(f);
-    const area = (b[1][0] - b[0][0]) * (b[1][1] - b[0][1]);
-    return area > 2000;
-  }))
-  .enter()
-  .append("text")
-  .attr("class", "region-label")
-  .attr("text-anchor", "middle")
-  .attr("x", d => {
-    const c = path.centroid(d);
-    const off = labelOffsets[d.properties.name] || { dx: 0, dy: 0 };
-    return c[0] + off.dx;
-  })
-  .attr("y", d => {
-    const c = path.centroid(d);
-    const off = labelOffsets[d.properties.name] || { dx: 0, dy: 0 };
-    return c[1] + off.dy;
-  })
-  .each(function(d) {
-    const label = getLabel(d.properties.name);
-    const lines = label.split("\n");
-    const textSel = d3.select(this);
+        .data(geoData.features.filter(f => {
+          const b = path.bounds(f);
+          const area = (b[1][0] - b[0][0]) * (b[1][1] - b[0][1]);
+          return area > 2000;
+        }))
+        .enter()
+        .append("text")
+        .attr("class", "region-label")
+        .attr("text-anchor", "middle")
+        .attr("x", d => {
+          const c = path.centroid(d);
+          const off = labelOffsets[d.properties.name] || { dx: 0, dy: 0 };
+          return c[0] + off.dx;
+        })
+        .attr("y", d => {
+          const c = path.centroid(d);
+          const off = labelOffsets[d.properties.name] || { dx: 0, dy: 0 };
+          return c[1] + off.dy;
+        })
+        .each(function(d) {
+          const label = getLabel(d.properties.name);
+          const lines = label.split("\n");
+          const textSel = d3.select(this);
 
-    lines.forEach((line, i) => {
-      textSel.append("tspan")
-        .attr("x", textSel.attr("x"))
-        .attr("dy", i === 0 ? 0 : "1.1em")
-        .text(line);
-    });
-  });
-
+          lines.forEach((line, i) => {
+            textSel.append("tspan")
+              .attr("x", textSel.attr("x"))
+              .attr("dy", i === 0 ? 0 : "1.1em")
+              .text(line);
+          });
+        });
 
       // --- Glow helpers for macro groups --------------------------------
       function glowRegions(names) {

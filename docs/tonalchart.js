@@ -1,4 +1,4 @@
-// tonalchart.js — tonal chart with independent legend lines
+// tonalchart.js — tonal chart with safe highlight (no SVG filter)
 (function(){
   let mounted = false;
 
@@ -69,7 +69,7 @@
       .attr("class", "chart-root")
       .attr("transform", "translate(-110, 50) scale(1.17)");
 
-    // ---- defs / glow filter ----
+    // ---- defs (glow filter kept but unused) ----
     const defs = gChart.append("defs");
     const glow = defs.append("filter")
       .attr("id", "glow")
@@ -185,9 +185,9 @@
       .endAngle(d => d.a1);
 
     // ---- audio: sampler + helpers ----
-    let sampler     = null;
-    let warmed      = false;
-    let isPlaying   = false;
+    let sampler      = null;
+    let warmed       = false;
+    let isPlaying    = false;
     let scheduledIds = [];
 
     // load piano samples into Tone.Sampler
@@ -270,13 +270,11 @@
       .style("cursor","pointer")
       .on("mouseover", function(){
         d3.select(this)
-          .attr("fill", d3.color(OUTER_COLOR).brighter(0.8))
-          .attr("filter","url(#glow)");
+          .attr("fill", d3.color(OUTER_COLOR).brighter(0.8));
       })
       .on("mouseout", function(){
         d3.select(this)
-          .attr("fill", OUTER_COLOR)
-          .attr("filter", null);
+          .attr("fill", OUTER_COLOR);
       })
       .on("pointerdown", async function(_, d){
         await ensureWarmup();
@@ -299,13 +297,11 @@
       .style("cursor","pointer")
       .on("mouseover", function(){
         d3.select(this)
-          .attr("fill", d3.color(INNER_COLOR).brighter(0.8))
-          .attr("filter","url(#glow)");
+          .attr("fill", d3.color(INNER_COLOR).brighter(0.8));
       })
       .on("mouseout", function(){
         d3.select(this)
-          .attr("fill", INNER_COLOR)
-          .attr("filter", null);
+          .attr("fill", INNER_COLOR);
       })
       .on("pointerdown", async function(_, d){
         await ensureWarmup();
@@ -355,19 +351,17 @@
     // --- legend: independent leader lines + labels + patches ---
     const gLegend = gChart.append("g").attr("class", "chart-legend-bubbles");
 
-    // lines
     // lines (only for items that define line angles)
-gLegend.selectAll("line")
-  .data(legendItems.filter(d => d.aLineStart != null && d.aLineEnd != null))
-  .enter()
-  .append("line")
-  .attr("x1", d => polarToXY(d.aLineStart, d.rLineStart).x)
-  .attr("y1", d => polarToXY(d.aLineStart, d.rLineStart).y)
-  .attr("x2", d => polarToXY(d.aLineEnd,   d.rLineEnd).x)
-  .attr("y2", d => polarToXY(d.aLineEnd,   d.rLineEnd).y)
-  .attr("stroke", "#7c7878ff")
-  .attr("stroke-width", 1);
-
+    gLegend.selectAll("line")
+      .data(legendItems.filter(d => d.aLineStart != null && d.aLineEnd != null))
+      .enter()
+      .append("line")
+      .attr("x1", d => polarToXY(d.aLineStart, d.rLineStart).x)
+      .attr("y1", d => polarToXY(d.aLineStart, d.rLineStart).y)
+      .attr("x2", d => polarToXY(d.aLineEnd,   d.rLineEnd).x)
+      .attr("y2", d => polarToXY(d.aLineEnd,   d.rLineEnd).y)
+      .attr("stroke", "#7c7878ff")
+      .attr("stroke-width", 1);
 
     // label/patch groups
     const gLegendItems = gLegend.selectAll("g.legend-item")
@@ -418,7 +412,6 @@ gLegend.selectAll("line")
     const btnInnerR = 10, btnOuterR = 140;
     const gap = 0, span = 1.575, bottom = 0;
     const btnShiftX = 200, btnShiftY = -200;
-    const btnLabelFontSize = 15;
 
     const btnOuterPath = d3.arc()
       .innerRadius(btnInnerR)
@@ -451,14 +444,12 @@ gLegend.selectAll("line")
       })
       .on("mouseover", function(){
         d3.select(this)
-          .attr("fill", d3.color(OUTER_COLOR).brighter(0.8))
-          .attr("filter","url(#glow)");
+          .attr("fill", d3.color(OUTER_COLOR).brighter(0.8));
       })
       .on("mouseout", function(){
         d3.select(this)
           .attr("fill", OUTER_COLOR)
-          .attr("fill-opacity", 0.9)
-          .attr("filter", null);
+          .attr("fill-opacity", 0.9);
       });
 
     // Georgian button — toggle play/stop
@@ -474,14 +465,12 @@ gLegend.selectAll("line")
       })
       .on("mouseover", function(){
         d3.select(this)
-          .attr("fill", d3.color(INNER_COLOR).brighter(0.8))
-          .attr("filter","url(#glow)");
+          .attr("fill", d3.color(INNER_COLOR).brighter(0.8));
       })
       .on("mouseout", function(){
         d3.select(this)
           .attr("fill", INNER_COLOR)
-          .attr("fill-opacity", 0.9)
-          .attr("filter", null);
+          .attr("fill-opacity", 0.9);
       });
 
     // Label "Georgian Tuning" alignment helper
@@ -548,15 +537,15 @@ gLegend.selectAll("line")
           await ensureWarmup();
           playSequence(outerMapped);
         });
-        gBtns.append("text")
-  .attr("x", 395)          // adjust spacing if needed
-  .attr("y", 350)
-  .attr("font-size",25)
-  .attr("font-weight", "700")
-  .text("⏸")
-  .attr("fill", "#514949ff")
-  .style("pointer-events", "none");  // makes it non-interactive
 
+      gBtns.append("text")
+        .attr("x", 395)
+        .attr("y", 350)
+        .attr("font-size",25)
+        .attr("font-weight", "700")
+        .text("⏸")
+        .attr("fill", "#514949ff")
+        .style("pointer-events", "none");
     }
 
     // Text: Georgian Tuning
@@ -597,30 +586,45 @@ gLegend.selectAll("line")
           await ensureWarmup();
           playSequence(innerMapped);
         });
-        gBtns.append("text")
-  .attr("x", 525)          // adjust as needed
-  .attr("y", 350)
-  .attr("font-size", 25)
-  .attr("font-weight", "700")
-  .text("⏸")
-  .attr("fill", "#514949ff")
-  .style("pointer-events", "none");
 
+      gBtns.append("text")
+        .attr("x", 525)
+        .attr("y", 350)
+        .attr("font-size", 25)
+        .attr("font-weight", "700")
+        .text("⏸")
+        .attr("fill", "#514949ff")
+        .style("pointer-events", "none");
     }
 
-    // highlightOn: temporary glow + brighter fill
+    // --- safe highlight: fake glow via stroke, no filters ---
+
     function highlightOn(node){
-      const el   = d3.select(node);
-      const orig = el.attr("fill");
-      el.attr("_origFill", orig);
-      el.attr("fill", d3.color(orig).brighter(0.8)).attr("filter", "url(#glow)");
+      const el = d3.select(node);
+      const origFill   = el.attr("fill");
+      const origStroke = el.attr("stroke");
+      const origSw     = el.attr("stroke-width") || 2;
+
+      el.attr("_origFill",   origFill);
+      el.attr("_origStroke", origStroke);
+      el.attr("_origSW",     origSw);
+
+      el.attr("fill", d3.color(origFill).brighter(0.8))
+        .attr("stroke", d3.color(origFill).brighter(1.2))
+        .attr("stroke-width", +origSw + 3)
+        .attr("stroke-opacity", 1);
     }
 
-    // highlightOff: restore original fill + remove glow
     function highlightOff(node){
-      const el   = d3.select(node);
-      const orig = el.attr("_origFill") || el.attr("fill");
-      el.attr("fill", orig).attr("filter", null);
+      const el = d3.select(node);
+      const origFill   = el.attr("_origFill")   || el.attr("fill");
+      const origStroke = el.attr("_origStroke") || el.attr("stroke");
+      const origSw     = el.attr("_origSW")     || 2;
+
+      el.attr("fill", origFill)
+        .attr("stroke", origStroke)
+        .attr("stroke-width", origSw)
+        .attr("stroke-opacity", 1);
     }
 
     // playSequence: toggle play / stop using Tone.Transport

@@ -9,26 +9,13 @@
   --tab-border:#426756;
   --page-bg:#d0d9cd;
   --text:#434040;
-  /* #050505; */
-  --content-max: 1000px;
+  --content-max: 700px;
 
   /* Map section layout (list + popovers) */
-  --list-width: 160px;          /* width of the region name column */
-  --col-gap: 20px;              /* gap between list and popovers panel */
+  --list-width: 160px;
+  --col-gap: 20px;
 
-  /* Popover card styling (region list) */
-  /* --pop-bg:#d0d9cd; */
-  /* --pop-text:#4d4949; */
-  /* --pop-border:#d0d9cd; */
-  /* --pop-radius: 1px; */
-  /* --pop-shadow: 0 4px 14px rgba(0,0,0,.12); */
-  /* --pop-padding: 12px 14px; */
-  /* --pop-maxw: 790px;            max width for each popover card */
-  /* --pop-title-size: 1rem;       title font size */
-  /* --pop-body-size: .93rem;      body font size */
-  /* --pop-font: "Lora", serif; */
-
-  /* Audio player theme (EDIT THESE for colors) */
+  /* Audio player theme */
   --audio-bg:#dbe0da;
   --audio-accent:#426756;
   --audio-knob:#426756;
@@ -36,11 +23,12 @@
 }
 
 /* ====== Global ====== */
-* { box-sizing: border-box; }
+* { box-sizing: border-box;}
 
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* prevent stray horizontal scroll (Brave/others) */
 }
 
 body {
@@ -57,66 +45,71 @@ body {
 }
 
 /* ====== Banner ====== */
+/* Banner image: crops from the bottom, keeps top fixed, responsive */
 .banner-image{
+  position: relative; /* anchor tabs on top of banner */
   width: 100%;
-  height: 320px;
-
-  aspect-ratio: 16/9;
-  background: url('img/banner_v3.jpg') center/cover no-repeat;
-}
-@media (max-width: 480px){
-  .banner-image { aspect-ratio: 3/2; }
+  background: url('img/banner_v3.jpg') top center / cover no-repeat;
+  overflow: hidden;
+  padding-top: 16%;   /* controls banner visible height */
 }
 
-/* ====== Tabs (sticky) ====== */
+/* Tabs ON banner */
 .tablist{
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding-top: env(safe-area-inset-top);
   display: flex;
-  gap: .25rem;
   flex-wrap: wrap;
-  background: var(--tab-bg);
-  border: 1px solid var(--tab-bg);
-  border-radius: .75rem .75rem 0 0;
-  padding: .25rem;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 5rem;                  /* <- space between tabs */
   width: min(100%, 1200px);
+  margin: 0 auto;
+  margin-top: -48px;           /* sit on banner; adjust -38..-64px */
 }
-.tablist button[role="tab"]{
-  appearance: none;
-  border: 0;
+
+[role="tab"]{
+  position: relative;
+  background: none !important;
+  border: none;
+  color: #e4e4e4;
+  /* let .tablist gap handle spacing: */
+  margin: 0;                   /* <- was 0 1.5rem (kills gap) */
+  /* keep a bit of hit-area here if you want */
+  padding: .4rem .8rem;        /* or leave as-is in your button rule */
+  overflow: visible;
+  font-size: clamp(21px, 1.9vw, 19px);
+}
+
+
+
+.tablist button[role="tab"] {
+  color: #d0d9cd;
+  background: none;
+  border: none;
+  font-family: "Lora", serif;
+  font-weight: 500;
   cursor: pointer;
-  padding: .75rem 1rem;
-  border-radius: .5rem;
-  background: transparent;
-  color: #fff;
-  font-weight: 600;
-  transition: background .2s ease;
-  min-height: 44px;
-  min-width: 44px;
+  padding: 0.79rem 1rem;
+  margin: 0 1.5rem;
+  font-size: 1.5rem;
 }
-.tablist button[role="tab"]:hover{
-  background: var(--tab-bg-hover);
-}
-.tablist button[role="tab"][aria-selected="true"]{
-  background: var(--tab-bg-active);
+.tablist button[role="tab"][aria-selected="true"] {
+  color: #c4a234;   /* active */
 }
 .tablist button[role="tab"]:focus-visible{
-  outline: 2px solid #fff;
+  outline: 3px solid #fff;
   outline-offset: 2px;
 }
 
 /* ====== Panels ====== */
 .panels{
-  border: 1px solid var(--tab-border);
-  border-top: none;
   border-radius: 0 0 .0rem .75rem;
   background:#d0d9cd;
   margin: 0 auto 4rem;
   width: min(100%, 1200px);
 }
+
 [role="tabpanel"]{
   display: none;
   padding: clamp(12px, 2vw, 24px);
@@ -127,521 +120,488 @@ body {
 }
 
 /* ====== 1ST TAB ====== */
-#panel-info {
-  padding-bottom: 20rem;
-}
+#panel-info { padding-bottom: 5rem; }
 
 .panel-content{
   max-width: var(--content-max);
   margin: 0 auto;
   position: relative;
-  padding-bottom: 10rem;
+  padding-bottom: 2rem;
 }
 
-.left-align {
-  text-align: left;
-}
+.left-align { text-align: left; }
 
-.panel-content h4{
-  margin-bottom: 0.9rem;
-}
+.panel-content h4{ margin-bottom: 0.9rem; }
 
 /* Indented list items */
-ul li.indent {
-  text-indent: 1rem;
-}
+ul li.indent { text-indent: 1rem; }
 
-/* ====== 2ND TAB: MAP + LIST/POPOVER ====== */
+/* ====== 2ND TAB ====== */
+#panel-map .panel-content { max-width: var(--content-max); margin: 0 auto; }
 
-#panel-map .panel-content {
-  max-width: var(--content-max);
-  margin: 0 auto;
-}
+#map-root{ position: relative; z-index: auto;}
+#panel-map{ padding-bottom: 40rem; padding-top: 0rem; }
 
-/* Make map-root anchor for overlays (macro panels) */
-#map-root{
-  position: relative;
-}
-#panel-map{
-  padding-bottom: 40rem;
-  padding-top: 0rem;
-}
-
-/* Left: one-column list */
-#region-list{
-  display: block;
-}
-#region-list .region-item{
-  display: block;
-  padding: 8px 10px;
-  line-height: 1.2;
-  cursor: pointer;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-#region-list .region-item:hover,
-#region-list .region-item.is-active{
-  background: rgba(0,0,0,0.06);
-}
-
-
-
-/* Right: popover column (relative so we can absolutely place the popover) */
+/* popovers */
 #region-popovers{
   position: relative;
   min-height: 40px;
-  /* z-index: 1000; */
+  z-index: 9999;        /* higher than the symbol */
 }
-
-/* Single popover box (absolute, aligned to list row by JS) */
 .region-popover{
   position: absolute;
   left: 0;
   width: min(var(--pop-maxw, 720px), 100%);
   max-width: 100%;
-
   background: var(--pop-bg, #fff);
   color: var(--pop-fg, #202020);
   border: 1px solid var(--pop-border, #ccc);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,.2);
   padding: var(--pop-pad, 12px 14px);
-
   font-family: var(--pop-font, "Lora", serif);
   font-size: var(--pop-size, 14px);
   line-height: 1.45;
-
   z-index: 10;
-}
-.region-popover .pop-title{
-  font-weight: 700;
-  margin-bottom: .35rem;
-}
-.region-popover .pop-body{
-  font-weight: 400;
-}
-/* ეს აკონტროლებს რუკის ლეიბლებს */
+} .region-popover .pop-title{ font-weight: 700; margin-bottom: .35rem; }
+
+/* SVG labels */
 #geo-map .region-label {
   font-family: "Lora", serif;
   font-weight: 570;
-  font-size: 17px;      /* change size here */
-  fill: #454242;        /* text color for SVG */
-  pointer-events: none; /* so labels don't block hover on regions */
+  font-size: 17px;
+  fill: #454242;
+  pointer-events: none;
 }
 
-
-/* Tighten on narrow screens */
-@media (max-width: 640px){
-  .list-and-popovers{
-    grid-template-columns: var(--list-width, 220px) 1fr;
-  }
-  #region-list{
-    width: 100%;
-  }
-  #region-popovers{
-    width: 100%;
-    position: relative;
-    min-height: 100px;
-  }
-}
-
-/* ====== Macro panels (for macro labels around the map) ====== */
-
-/* Overlay layer inside #map-root */
+/* ====== Macro panels ====== */
 .macro-panels-layer{
-  position: absolute;
-  inset: 0;
-  pointer-events: none;   /* panels themselves re-enable pointer-events */
-}
+   position: absolute; 
+   inset: 0; 
+   pointer-events: none; 
+  }
 
-/* The macro panel itself */
 .macro-panel{
   position: absolute;
-  max-width: 1000px;
+  max-width: 900px;
+  width: min(900px, calc(100vw - 48px));
   background: #e7e7de;
   color: #202020;
   border: 4px solid #a2beac;
   border-radius: 10px;
   box-shadow: 0 4px 14px rgba(0,0,0,.18);
-  padding-left: 20px;
-  padding-right: 34px;
+  padding-left: 40px;
+  padding-right: 40px;
   font-family: "Lora", serif;
   font-size: 1rem;
   line-height: 1.3;
+  z-index: 500;
+  opacity: 1;
+  pointer-events: auto;
+   isolation: isolate;
   
-  z-index: 30;
-  pointer-events: auto;      /* clickable */
 }
-
-/* close (X) button in macro panels */
 .macro-close {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  border: 2px solid currentColor;
-  background: transparent;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0;
+  position: absolute; top: 6px; right: 10px;
+  width: 22px; height: 22px; border-radius: 999px;
+  border: 2px solid currentColor; background: transparent;
+  font-size: 20px; line-height: 1; cursor: pointer; padding: 0;
 }
 
-/* basic spacing inside */
-.macro-panel p{
-  margin: 0 Trem 0;
-  margin-top: 0;
-}
+/* Macro label text */
+.macro-label{ font-weight: 700; font-size: 24px; text-anchor: middle; }
 
-/* position variants (we rely on JS for base top/left, transform just nudges) */
-.macro-panel[data-pos="top-left"]{
-  transform: translate(0, -100%);
-  margin-top: -8px;
-}
-.macro-panel[data-pos="top-right"]{
-  transform: translate(-100%, -100%);
-  margin-top: -8px;
-}
-.macro-panel[data-pos="bottom-left"]{
-  transform: translate(0, 8px);
-}
-.macro-panel[data-pos="bottom-right"]{
-  transform: translate(-100%, 8px);
-}
+/* Tooltip on map */
+#region-list .region-item{ display: block; padding: 8px 10px; line-height: 1.2; cursor: pointer; border-radius: 6px; white-space: nowrap; }
+#region-list .region-item:hover, #region-list .region-item.is-active{ background: rgba(0,0,0,0.06); }
 
-/* ====== Map tooltip (for on-map hover) ====== */
 #map-tooltip {
-  position: absolute;
-  display: none;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  padding: 10px;
-  pointer-events: none;
-  z-index: 1000;
-  font-size: 14px;
-  max-width: 260px;
-  border: 1px solid #ccc;
-  color: #202020;
+  position: absolute; display: none; background: #fff; border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 10px; pointer-events: none;
+  z-index: 1000; font-size: 14px; max-width: 260px; border: 1px solid #ccc; color: #202020;
   font-family: "Lora", serif;
 }
 
-/* Labels on the SVG map */
-.region-label{
-  font-size: clamp(10px, 1.4vw, 16px);
-  fill: #525050ff;
-  text-anchor: middle;
-}
-
-/* Macro labels on the SVG map (base style; per-label color set in JS) */
-.macro-label{
-  font-weight: 700;
-  font-size: 24px;
-  text-anchor: middle;
-  /* margin-bottom: 10px; */
-}
-
 /* ====== Tonal Chart ====== */
+.chart-legend { max-width: 700px; margin: 0 auto; font-size: 16px; padding-bottom: 0px; color:var(--text); }
+.chart-instr{ max-width: 610px; margin: 0 auto; font-size: 17px; padding-bottom: 0px; padding-top: 0px; color:#2c2a2a; }
+.tonal-svg { width: 80%; max-width: 1100px; display: block; margin: 0 auto; }
 
-.chart-legend {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 16px;
-  padding-bottom: 0px;
-  color:var(--text);
-}
-.chart-instr{
-  max-width: 610px;
-  margin: 0 auto;
-  font-size: 17px;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  color:#2c2a2a;
-}
-
-.tonal-svg {
-  /* height: 80%; */
-  width: 80%;
-  max-width: 1100px;
-  display: block;
-  margin: 0 auto;
-}
-
-
-
-/* If you want it movable inside the Tonal panel only */
-#panel-tonal {
-  position: relative;
-}
-.icon-header {
-  position: absolute;   /* or fixed if you want it glued to the viewport */
-  top: -39px;            /* change these numbers to move it */
-  left: 492px;
-  cursor: pointer;
-  z-index: 20;
-}
-.tonal-icon-header {
-  position: absolute;   /* or fixed if you want it glued to the viewport */
-  top: -35px;            /* change these numbers to move it */
-  left: 382px;
-  cursor: pointer;
-  z-index: 20;
-}
-.tonal-icon-header2 {
-  position: absolute;   /* or fixed if you want it glued to the viewport */
-  top: -30px;            /* change these numbers to move it */
-  left: 325px;
-  cursor: pointer;
-  z-index: 20;
+/* Info icons positions */
+#panel-tonal { position: relative; }
+/* .icon-header, .tonal-icon-header, .tonal-icon-header2 {
+cursor: pointer;position:absolute;z-index: 0;x
+} */
+.tonal-icon-header  { top: -30px; left: 240px;}
+.tonal-icon-header2 { 
+  /* position: fixed;        THIS is the key change */
+  top: -39px;
+  left: 250px;
+  /* transform: translate(-50%, -50%); */
+  z-index: 0;
+  pointer-events: auto;
 }
 
 /* ====== Audio player ====== */
 .audio-player{
-  
   position: fixed;
   top: 10px;
-  left: auto;
-  right: 16px;   
-  width: 530px;       
-  padding: opx;
+  right: 16px;
+  width: 530px;
   background: #d3dbd1;
   border:4px solid #5a7263;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,.2); 
   z-index: 1500;
   display: none;
-
-  /* display: flex; */
   justify-content: center;
 }
 
-/* ეს გლობალივით არი ყველაფერი ამაში ზის */
-.audio-inner{
+.audio-inner{ 
+  position: relative;
   overflow: visible !important;
-  width: 500px;         /* controls content width */
-  max-width: 100%;      /* keeps it safe on small screens */
-  /* background-color: #bbd2b5; */
+  width: 500px;
+  max-width: 100%;
+
 }
-
-
-
-/* დახურვის ღილაკი X */
 
 .audio-close{
-  position:absolute;
-  top:7px;
-  right:10px;
-  border:none;
-  background:none;
-  font-size:25px;
-  cursor:pointer;
+  position: absolute;   /* not fixed */
+  top: 10px;
+  right: -15px;
+
+  border: none;
+  background: none;
+  color: var(--player-accent);
+  font-size: 30px;
+  font-weight: 900;
+  cursor: pointer;
   line-height: 1;
-  /* background-color: #bbd2b5; */
+
+  /* remove these (they break it across screens) */
+  /* bottom: auto; */
 }
-/* ეს მთელ ფლეიერის კონტროლერს ვრაპავს და აკონტროლებს შესაბამისად */
+
+
+
+.audio-now{ 
+  font-size: 17px; 
+  margin: 0 0 0px 0px; 
+  font-weight: 550; 
+  color:#434040 }
+
+/* Audio controls */
+/* outer wrapper around custom player row */
 .audio-border-wrap {
-  /* border: 2px solid #5a7263;     your color */
   width: 100%;
-  height: 50px;
-  border-radius: 10px;           /* optional */
-  padding: 0px; 
-  margin-left: 0.2rem;                 /* creates space for the border */
-  display: block;
-}
-/* This is responsible for "now playing" text */
-.audio-now{
-  font-size: 17px;
-  margin-top: 0px;
-  margin-bottom: 40px;
-  margin-left: 20px;
-  font-weight: 550;
-  color:#434040
-}
-/* ეს ყველა პარაგრაფს ამოძრავებს.დროფ დაუნის კონტროლი ქვემოთ არის მაგრამ ესეც აკონტროლებს*/
-.audio-accordion p {
-  margin-top: 0;
-  margin-left: 0rem;
-}
-
-/* ეს კააკონტროლებს მუსიკის დესკრიფცია ტექსტს */
-.audio-intro {
-  text-align: justify;
-  margin-bottom: 20px;
-  margin: left 0px;
-  font-weight: 500;       /* optional */
-  font-size: 1rem;        /* optional */
-  color: #3a3838;            /* optional */
-}
-
-
-
-
-
-
-/* new: description inside player ეს დროფ დაუნია სადაც მუსიკალური ტრადიციის დახასიათებაა*/
-.audio-description{
-  font-size: 16px;
-  color:#434040;
-  line-height: 1.2;
-  margin-top: 20px;
-  margin-bottom: 1px;
-  margin-left: 20px;
-  max-height: 220px;
-  overflow-y: auto;
-}
-
-/* Now playing control #bbd2b5.  ეს იმ ოვალურ პანელს ფარავს (კიარა და მის უკან ზის)თუ კი ფერს მივცემთ*/
-audio {
-  width: 95%;
-  display: block;
-  padding: 0;
-  margin-top: 0px;
-  margin-left: 0px;
-  background-color: transparent;
-}
-
-/* === Audio player color control (WebKit-based browsers) === */
-
-/* Panel background for the built-in controls area */
-audio::-webkit-media-controls-panel {
-  /* background-color: #5ba748; */
-  color: #585e56;
-  padding: 0 0px;
-  width: 20px;
-  margin: 10px; /* ეს პროგრეს ბარს და ფლეი ღილაკს ავიწროვებს*/
-  border: 0px;
+  margin-left: .2rem;
   border-radius: 10px;
+  padding: 4px 6px;
+  display: block;
 }
 
-/* ოვალური პანელი რაზე ფლეი ზის */
-audio::-webkit-media-controls-enclosure {
-  background-color:  #d0d9cd;
-  border-radius: 20px;
-  height: px;
-  margin-left: 0px;
-  border: 100px;
+/* hide native chrome completely (we use only JS API) */
+#audio-player-container audio {
+  display: none;
+}
+
+/* the “white pill” panel that you can recolor */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #d0d9cd;      /* ← change this to any color you want */
+  border-radius: 999px;
+  padding: 6px 10px;
+  
+}
+
+/* play/pause button */
+#audio-play {
+  border: none;
+  background: var(--player-accent);
+  color: #d0d9cd;
+  border-radius: 999px;
+  width:35px;
+  height: 35px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* filter: saturate(10) contrast(0.9); */
+}
+
+#audio-play.paused {
+  background: color-mix(in srgb, var(--player-accent) 55%, var(--player-accent) 45%);
+  margin-top: 1.3rem
 }
 
 
-
-/* Play/pause button circle */
-audio::-webkit-media-controls-play-button {
-  background-color: #b5b5b5;
-  border-radius: 60%;
-  transform: scale(0.9);
-  margin-left: 0px;
+/* time display */
+#audio-time {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  margin-top: 1.3rem
 }
 
-/* Timeline/progress bar track თცითონ ის ხაზი(შავიდ) და მუქი მწვანე გარსი*/
-audio::-webkit-media-controls-timeline {
-  background-color: #b5b5b5;
-  height: 2px;          /* sometimes works (Chrome = limited)*/
- margin: 0px;           /* small effect */
-  padding: 11px;           /* small effect */
-  border-radius: 30px;
-  margin-top: 0px;
+#audio-seek { 
+  accent-color: 
+  var(--player-accent); 
+  width: 15.5rem;
+  margin-top: 1.23rem; 
+  height: 3px;
+} 
+#audio-seek::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Necessary to override default look */
+  background: var(--player-accent); /* Your desired color */
+  width: 19px;
+  height: 14px;
+  border-radius: 50%; /* Makes it round */
+}
+#audio-seek::-moz-range-thumb {
+  background: var(--player-accent);   /* ← same color */
+  width: 19px;
+  height: 14px;
+  
+  border-radius: 50%;
+  cursor: pointer;
+}
+#now-playing {
+  margin-left: 0.5rem;
   margin-bottom: 0;
-  margin-left: 10px;
 }
 
-/* Time text (current time / remaining) */
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display {
-  color: #111010;
-  font-size: 11px; 
-  padding: 01 10px;  
-  /* background-color: #bbd2b5; */
-     /* tiny bit less space, if browser respects it */
+#now-playing-panel{
+  margin-left: 0.5rem;
+  padding-top: 1rem;
+margin-top: 0rem;
+  margin-bottom: -1rem;
+  font-size: 1.05rem;
+  line-height: 1rem;
+  margin-right: 2rem;
+}
+/* Remove dots when open */
+#now-playing.is-open::after{
+  content: "";
+
+}
+#now-playing.accordion-header::before{
+  content: none !important;
 }
 
-/* ====== Color helpers used in text ====== */
+/* Mute button (keeps your SVG) */
+#audio-mute{
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-top: 1.3rem;         /* match others */
+  line-height: 0;
+  cursor: pointer;
+  position: relative;         /* needed for the “X” overlay */
+  color: var(--player-accent);             /* <-- ICON COLOR CONTROL (change this) */
+}
+
+/* size/location of the svg icon */
+#audio-mute svg{
+  width: 28px;                /* <-- ICON SIZE CONTROL */
+  height: 28px;
+  display: block;
+}
+
+/* Draw an X over the icon when muted */
+#audio-mute.is-muted::before,
+#audio-mute.is-muted::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 2.5px;
+  background: currentColor;   /* uses same color as icon */
+  transform-origin: center;
+}
+#audio-mute.is-muted::before{ transform: translate(-50%,-50%) rotate(45deg); }
+#audio-mute.is-muted::after { transform: translate(-50%,-50%) rotate(-45deg); }
+
+/* Volume slider: size + color + thumb */
+#audio-volume{
+  accent-color: var(--player-accent);      /* <-- SLIDER COLOR CONTROL (match seek) */
+  width: 3.2rem;                /* <-- VOLUME LENGTH CONTROL */
+  margin-top: 1.3rem;
+  height: 3px;
+}
+
+/* Thumb (Chromium/Safari) */
+#audio-volume::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background: var(--player-accent);        /* <-- THUMB COLOR CONTROL */
+  width: 19px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+/* Thumb (Firefox) */
+#audio-volume::-moz-range-thumb{
+  background: var(--player-accent);        /* <-- THUMB COLOR CONTROL */
+  width: 19px;
+  height: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#audio-player-container{ z-index: 999999 !important; }
+
+/* Color helpers */
 .beige { color: #cd9138; font-size: 20pt; font-weight: bold; }
 .green { color: #2e9a78; font-size: 20pt; font-weight: bold; }
 .blue  { color: #4562a6; font-size: 20pt; font-weight: bold; }
 .pink  { color: #c3679f; font-size: 20pt; font-weight: bold; }
 
-/* ====== Accordions (h4 + any custom blocks) ====== */
-
-/* If you still use accordion-blocks somewhere ეს არის ჩამოშლადი ბლოკი სადაც დეტალებია კუთხურ ტრადიციაზე/
-აღმოჩნდა რომ მუსიკის აღწერაა this song is unbeleavable*/
-.accordion-block{
-  margin-top: 1px;
-  font-size: 1.2rem;
-  font-display: #686666;
-  margin-bottom: 1rem;
-  /* background-color: #bbd2b5; */
-  margin-left: 1rem;
+/* ====== Accordions ====== */
+.accordion-block{ 
+  margin-top: 0px; 
+  font-size: 1.8rem; 
+  margin-bottom: 0rem; 
+  margin-left: 3.5rem; 
 }
-
-/* Base accordion header – used by h4 AND any custom blocks */
-.accordion-header{
-  cursor: pointer;
-  position: relative;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  /* background-color: #bbd2b5; */
-  padding-bottom: 0.2rem;
+.accordion-header{ 
+  position: relative; 
+  margin-top: 0.1rem;
+  margin-left: -1.8rem; 
+  font-size: 1.3rem; 
+  font-weight: 500;
+ }
+.accordion-header::before{
+  content: "▾"; 
+  display: inline-block; 
+  color: #8fb7a5; 
+  margin-right: 6px;
+  transition: transform .1s ease; 
+  vertical-align: middle; 
+  font-size: 1.7rem;
 }
+.tonal-icon-header::before, .tonal-icon-header2::before { content: none !important; }
 
-/* Only h4 headers get this centering/grey color (Tab 1) */
+
+#audio-player-container .accordion-header::before { 
+  color: currentColor; 
+  font-size: 1.9rem; 
+  margin-left: 0.2rem; }
+
+.accordion-header.is-open::before{ transform: rotate(180deg); }
+
 h4.accordion-header{
-  text-align: justify;
-  color: #686666;
-  font-size: 1.4rem;
-  bottom: 0rem;
-  left: 2rem;
+  text-align: justify; 
+  color: #434040; 
+  font-size: 1.3rem; 
+  bottom: 0rem; 
+  left: 0.5rem; 
   top: 1rem;
+  font-weight: 400;
 }
 
-/* Arrow only for h4 accordions (NOT for macro labels) */
-h4.accordion-header::after{
-  content: "▾";
-  position: absolute;
-right: 63rem;  
-top: 20%;
-  transform: translateY(-40%);
-  font-size: 2rem;
-  color: #8fb7a5;
-}
-
-/* panel container */
 .accordion-panel{
-  max-height: 0;
-  font-size: 1.1rem;
-  overflow: hidden;
+  max-height: 0; 
+  font-size: 1.1rem; 
+  overflow: hidden; 
   transition: max-height 0.20s ease, opacity 0.05s ease;
-  opacity: 0;                   /* text hidden when closed */
-  padding: 0;                   /* prevents leftover padding glitch */
+  opacity: 0; 
+  padding: 0;
+   position: relative; /* REQUIRED for z-index to work */
+  z-index: 50;        /* higher than the symbol */
 }
 
-/* opened panel */
+
 .accordion-panel.is-open{
-  max-height: 2000px;
-  opacity: 1;                   /* text appears instantly */
-  border: 1px solid #3a6040;
-  border-radius: 10px;
-  padding: 20px;
+  max-height: 2000px; 
+  opacity: 1; 
+  border: 1px solid #3a6040; 
+  border-radius: 10px; 
+  padding: 15px;
+  margin-left: -1.7rem;
+  background:#d0d9cd;
+  font-size: 1rem;
+  background: #d0d9cd;
+  z-index: 50;
 }
 
-#audio-player-container .accordion-panel.is-open {
-  border: none !important;
-  padding: 0 !important;        /* optional – match your original */
-  border-radius: 0 !important;  /* optional */
-}
 
+
+#audio-player-container .accordion-panel.is-open { 
+  border: none !important; 
+  padding-top: 5px !important;  /* <-- this is the spacing you want */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 15px !important;
+  border-radius: 0 !important; 
+  margin-top: 0px;
+  
+  
+}
+#region-description{
+  margin-top: -1.5rem;
+  line-height: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 2rem;
+  
+}
 /* Georgian script inside suffixes */
-.ka {
-  font-size: 0.85em;   /* shrink slightly vs Latin */
-  font-style: normal;  /* keep non-italic; change to italic if you want */
+.ka { font-size: 0.85em; font-style: normal; }
+
+/* “Play Sequence” helpers */
+.legend-line { position: absolute; height: 1px; background: #444; }
+.legend-label { position: absolute; font-size: 16px; color: #6a6464; }
+
+/* ====== Responsive ====== */
+/* Phones */
+@media (max-width: 480px){
+  .banner-image{ padding-top: 40%;position: relative; }
+  
+  /* ====== Tabs (sticky, centered, sitting on banner) ====== */
+.tablist{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* center names */
+  gap: 1rem;                /* space between names */
+
+  /* center container; remove lateral offset */
+  width: min(100%, 1200px);
+  margin: 0 auto;
+
+  /* pull the sticky bar up to overlap the banner visually */
+  margin-top: -48px;         /* tweak: -38 to -64px depending on taste */
 }
 
-/* ====== Reduced motion ====== */
-@media (prefers-reduced-motion: reduce){
-  * {
-    animation: none !important;
-    transition: none !important;
+  .tablist [role="tab"]{ 
+    padding: .55rem .8rem; 
+    font-size: 1.8rem; 
+    margin: 0 .75rem; 
   }
+
+  .tonal-svg{ width: 94%; }
+  #audio-player-container{ width: min(92vw, 520px); right: 4vw; left: 4vw; }
+}
+
+/* Tablets */
+@media (min-width:600px) and (max-width:1024px){
+  .banner-image{ padding-top: 22%; }
+  .tablist{
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content:center;
+    gap: .35rem;
+  }
+ 
+
+
+  .tonal-svg{ width: 92%; }
+  #audio-player-container{ width: 520px; right: 12px; }
+  .macro-panel{ font-size: 0.98rem; padding-left: 28px; padding-right: 28px; z-index: 9999;}
 }

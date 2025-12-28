@@ -126,8 +126,8 @@
     // --- Macro groups + label positions ---------------------------------
     const macroGroups = {
       "Western Georgia":      ["Abkhazia","Samegrelo","Guria","Achara","Imereti"],
-      "Eastern Georgia":      ["Meskhet-Javakheti","Shida Kartli","Kvemo Kartli","Kakheti","Tbilisi","South Ossetia(Samachablo)","Ertso Tianeti","South-Ossetia","Ertso-Tianeti"],
-      "Northeastern regions":["Khevi","Khevsureti","Tusheti","Mtiuleti","Pshavi"],
+      "Eastern Georgia":      ["Meskhet-Javakheti","Shida Kartli","Kvemo Kartli","Kakheti","Tbilisi","South Ossetia(Samachablo)","South-Ossetia"],
+      "Northeastern regions":["Khevi","Khevsureti","Tusheti","Mtiuleti","Pshavi","Ertso Tianeti","Ertso-Tianeti"],
       "Northwestern regions":["Svaneti","Racha","Lechkhumi"]
     };
 
@@ -148,40 +148,39 @@
 
     // Text content for macro panels (no titles inside, only body)
     const macroDescriptions = {
-      "Western Georgia": 
-      `
-
-      <p class="left-align" style="text-align:justify;margin-top: 30px; margin-bottom: 15px;">
-       <span style="color:#2e9a78; font-weight:100; font-size:1.25em;">Western Georgia</span> encompasses Samegrelo, Imereti, Guria, and Achara. 
+      "Western Georgia": `
+      <p class="left-align" style="text-align:justify;margin-top: 30px; margin-bottom: 25px;">
+       <span style="color:#2e9a78; font-weight:100; font-size:1.25em;">Western Georgia</span>
+       </p>
+       <p>
+      encompasses Samegrelo, Imereti, Guria, and Achara.
       These regions are known for their more agile and high-pitched singing styles.
         </p>
 
  <p class="left-align" style="text-align:justify; margin-bottom: 15px;">
-        Mingrelian singing is characterized by smoother, more melodic, and sometimes sorrowful tones, yet with a clear rhythmic 
+        <strong>Mingrelian</strong> singing is characterized by smoother, more melodic, and sometimes sorrowful tones, yet with a clear rhythmic
         structure and a sharp, metallic quality in choral pieces.
-         </p> 
-
+         </p>
 
 <p class="left-align" style="text-align:justify; margin-bottom: 15px;">
-The Gurian singing tradition is known for its diverse repertoire, featuring both group and trio forms of performance. 
-Alternation between trio and group singing is also common. The manner of singing is often sharp and piercing; 
+The <strong>Gurian</strong> singing tradition is known for its diverse repertoire, featuring both group and trio forms of performance.
+Alternation between trio and group singing is also common. The manner of singing is often sharp and piercing;
 however, some trio songs are performed in a fairly low register with soft vocal delivery.
 </p>
 
-
 <p class="left-align" style="text-align:justify; margin-bottom: 15px;">
-      The Imeretian tradition is divided into Upper and Lower Imeretian. 
-      The Upper tradition shares sound qualities with Lechkhumi and Kartli, featuring a moderately slower tempo that is both heavy and lively. 
+      The <strong>Imeretian</strong> tradition is divided into Upper and Lower Imeretian.
+      The Upper tradition shares sound qualities with Lechkhumi and Kartli, featuring a moderately slower tempo that is both heavy and lively.
       The Lower Imeretian style is louder and more piercing, though slightly mellower than that of Guria.
         </p>
 
-<p class="left-align" style="text-align:justify; margin-bottom: 15px;"> 
-Achara is a region that was historically part of the old Georgian province of Shavsheti. 
-Both regions were under long Ottoman occupation, with Shavsheti remaining within modern-day Turkey. 
-Folk songs from these areas are primarily two-voiced, though three-voiced singing is also common in Achara. 
-<br> Acharian singing practice is characterized by a high-pitched and agile sound, at times resembling the Gurian style but in a less marked manner. 
-Complex parallel forms of multi-voiced singing are also typical of this region. 
-</p> 
+<p class="left-align" style="text-align:justify; margin-bottom: 15px;">
+<strong>Achara</strong> is a region that was historically part of the old Georgian province of Shavsheti.
+Both regions were under long Ottoman occupation, with Shavsheti remaining within modern-day Turkey.
+Folk songs from these areas are primarily two-voiced, though three-voiced singing is also common in Achara.
+ Acharian singing practice is characterized by a high-pitched and agile sound, at times resembling the Gurian style but in a less marked manner.
+Complex parallel forms of multi-voiced singing are also typical of this region.
+</p>
 
       <p class="left-align" style="text-align:justify; margin-bottom: 15px;">
       <em>Krimanchuli</em> (yodeling) and <em>Gamkivani</em> (mixed voice) appear in Gurian and Acharian songs.
@@ -193,85 +192,89 @@ Complex parallel forms of multi-voiced singing are also typical of this region.
         </p>
       `,
 
-      "Eastern Georgia": 
-      `
+      "Eastern Georgia": `
       <p class="left-align" style="text-align:justify; margin-top: 30px; margin-bottom: 25px;">
-      <span style="color:#cd9138;font-weight:100; font-size:1.25em;">Eastern Georgia</span> Includes Kakheti, Kartli (Shida and Kvemo, meaning inner and lower), and Meskheti-Javakheti.<br>
+      <span style="color:#cd9138;font-weight:100; font-size:1.25em;">Eastern Georgia</span>
       </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 25px;">
-    Includes Kakheti, Kartli (divided into Shida and Kvemo, meaning inner and lower), and Meskheti-Javakheti.  
-    <br>The Eastern tradition unites these provinces, with Kakhetian singing being dominant due to its richness in repertoire and distinctive character. 
+    Includes <strong>Kakheti</strong>, <strong>Kartli</strong> (divided into Shida and Kvemo,
+    meaning inner and lower), and <strong>Meskhet-Javakheti</strong>.
+    <br>The Eastern tradition unites these provinces, with Kakhetian singing being dominant due to its richness in repertoire and distinctive character.
     Traditions from these regions share similar features, most notably the use of a drone-like bass and melismatic solo lines.
-        </p>  
+        </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 30px;">
-    Samtskhe-Javakheti, for its part, unites three historical provinces - Meskheti, Javakheti, and Tori - which are not geographically represented on the current map. 
-    Due to prolonged occupation and influence from the Ottoman Empire, the region’s three-part singing tradition experienced a derangement, 
-    giving way to two-voiced, drone-based polyphony. 
-    The singing style resembles that of Kartli and Kakheti but features fewer melismata and lacks open vocal sounds. 
+    <strong>Meskhet-Javakheti</strong>, for its part, unites three historical provinces - Meskheti, Javakheti, and Tori - which are not geographically represented on the current map.
+    Due to prolonged occupation and influence from the Ottoman Empire, the region’s three-part singing tradition experienced a derangement,
+    giving way to two-voiced, drone-based polyphony.
+    The singing style resembles that of Kartli and Kakheti but features fewer melismata and lacks open vocal sounds.
     </p>
       `,
 
-      "Northwestern regions":
-       `
-      <p class="left-align" style="text-align:justify; margin-top: 30px; margin-bottom: 5px;">
-       <span style="color:#4562a6;font-weight:100; font-size:1.25em;">Northwestern regions</span> would cover Svaneti, together with Racha-Lechkhumi, represents a three-part singing tradition primarily based on choral forms. 
+      "Northwestern regions": `
+      <p class="left-align" style="text-align:justify; margin-top: 30px; margin-bottom: 25px;">
+       <span style="color:#4562a6;font-weight:100; font-size:1.25em;">Northwestern regions</span>
+       </p>
+       <p>
+       comprise Svaneti, together with Racha-Lechkhumi, represents a three-part singing tradition primarily based on choral forms.
        Round dances (Perkhuli) are typical of all of them, and the forms of performance include group singing, alternation between two groups, and solo singing.
         </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 10px;">
-        Svaneti stands out for its distinct sound and linguistic identity, with a strong focus on ritual songs. 
-        It is difficult to compare Svanetian music to that of other Georgian regions; 
-        however, Rachian and Lechkhumian traditions share a somewhat similar vocal resonance - raw, tense, and dissonant. 
-        The singing manner is loud and heavy with ascending and descending pitch-slides. 
+        <strong>Svaneti</strong> stands out for its distinct sound and linguistic identity, with a strong focus on ritual songs.
+        It is difficult to compare Svanetian music to that of other Georgian regions;
+        however, Rachian and Lechkhumian traditions share a somewhat similar vocal resonance - raw, tense, and dissonant.
+        The singing manner is loud and heavy with ascending and descending pitch-slides.
         </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 10px;">
-        Rachian singing is somewhat similar to the Svanetian style but features a more text-heavy songs and less obvious pitch slides. 
-        It is also distinguished by a rapid, trembling vibrato. 
+        <strong>Rachian</strong> singing is somewhat similar to the Svanetian style but features a more text-heavy songs and less obvious pitch slides.
+        It is also distinguished by a rapid, trembling vibrato.
         </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 10px;">
-        Lechkhumian singing shares the heaviness of 
-        Rachian songs and the mobility of Upper Imeretian traditions, along with more extensive lyrical content. 
+        <strong>Lechkhumian</strong> singing shares the heaviness of
+        Rachian songs and the mobility of Upper Imeretian traditions, along with more extensive lyrical content.
         </p>
 
-        <p class="left-align" style="text-align:justify; margin-bottom: 30px;"> 
-        All traditions from these regions feature the use of pitch slides. 
-        <br> Svan songs and musical instruments are also disseminated throughout Abkhazia. 
+        <p class="left-align" style="text-align:justify; margin-bottom: 30px;">
+        All traditions from these regions feature the use of pitch slides.
+        <br> Svan songs and musical instruments are also disseminated throughout Abkhazia.
         </p>
       `,
 
-      "Northeastern regions":
-       `
+      "Northeastern regions": `
       <p class="left-align" style="text-align:justify; margin-top: 30px; margin-bottom: 10px;">
-        <span style="color:#c3679f;font-weight:100; font-size:1.25em;">Northeastern regions</span> comprises the small regions of Khevsureti, Pshavi, Tusheti, Khevi, Mtiuleti, and Tianeti.
+        <span style="color:#c3679f;font-weight:100; font-size:1.25em;">Northeastern regions</span>
+        </p>
+        <p>
+        comprise the small regions of Khevsureti, Pshavi, Tusheti, Khevi, Mtiuleti, and Tianeti.
         <br>Many of the regions lie in mountainous areas ranging from 3,200 to 9,200 feet (1,000–2,800 meters) in elevation.
-        The so-called Military Road — the only route connecting the northern and southern 
+        The so-called Military Road — the only route connecting the northern and southern
         Caucasus and the sole passage between Russia and Georgia — has passed through this area for centuries.
         <br>Constant transit along this corridor exposed the region to outside influences, which may be reflected in its traditional folk music,
-         particularly in the structure of its three-part vocal arrangements. Drone-based singing, in one or two voices, 
+         particularly in the structure of its three-part vocal arrangements. Drone-based singing, in one or two voices,
         is common in these areas, accompanied by a strong emphasis on regional poetry and the use of string instruments.
         </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 10px;">
-        The Mokhevian tradition stands out for preserving Georgian three-voiced, 
+        The <strong>Mokhevian</strong> tradition stands out for preserving Georgian three-voiced,
         drone-based polyphony, typically performed in a loud and somber vocal tone.
         </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 10px;">
-        Khevsureti, Pshavi, and Mtiuleti share a two-voiced drone tradition, often characterized by alternation between two soloists.
+        <strong>Khevsureti</strong>, <strong>Pshavi</strong>, and <strong>Mtiuleti</strong> share a two-voiced drone tradition, often characterized by alternation between two soloists.
         <br> Singing in Khevsureti tends to be tense and forceful, while the Pshavian and Mtiuletian styles are more restrained and nuanced.
         </p>
 
         <p class="left-align" style="text-align:justify; margin-bottom: 7px;">
-         Tianeti, located near Kakheti, displays similarities to Kakhetian singing, including a sharper vocal tone, 
-        alternation between top and middle solo lines, and a background drone accompanied by an open, resonant sound. 
+         <strong>Tianeti</strong>, located near Kakheti, displays similarities to Kakhetian singing, including a sharper vocal tone,
+        alternation between top and middle solo lines, and a background drone accompanied by an open, resonant sound.
         </p>
-<p class="left-align" style="text-align:justify; margin-bottom: 30px;"> 
-The region of Tusheti, known for its isolation and difficult access,features solo and unison singing in a softer vocal manner, 
-often marked by pitch vibration and melismatic ornamentation. 
+<p class="left-align" style="text-align:justify; margin-bottom: 30px;">
+The region of <strong>Tusheti</strong>, known for its isolation and difficult access,features solo and unison singing in a softer vocal manner,
+often marked by pitch vibration and melismatic ornamentation.
 </p>
       `
     };
@@ -377,13 +380,6 @@ often marked by pitch vibration and melismatic ornamentation.
       `
     };
 
-    // --- Tooltip positioning ---------------------------------------------
-    function positionTooltip(evt) {
-      const x = (evt.clientX || 0) + window.scrollX + 10;
-      const y = (evt.clientY || 0) + window.scrollY - 20;
-      tooltip.style("left", `${x}px`).style("top", `${y}px`);
-    }
-
     function fit() {
       if (!geoData) return;
       projection = d3.geoMercator().fitSize([VW, VH], geoData);
@@ -393,6 +389,9 @@ often marked by pitch vibration and melismatic ornamentation.
         .attr("x", d => path.centroid(d)[0])
         .attr("y", d => path.centroid(d)[1]);
     }
+
+    // map from macro label text => SVG text node (for arrow flipping)
+    const macroLabelNodes = new Map();
 
     // ======================= MAIN DATA LOAD ===============================
     d3.json('./Geo_Data/REG_AUD.geojson').then(data => {
@@ -409,7 +408,8 @@ often marked by pitch vibration and melismatic ornamentation.
         .attr("stroke", "black")
         .attr("stroke-width", 1)
         .attr("filter", "url(#neumorphic-raised)")
-        .attr("id", d => d.properties.name);
+        .attr("id", d => d.properties.name)
+        .style("cursor", "pointer");
 
       regions.each(function (d) {
         regionIndex.set(d.properties.name, d3.select(this));
@@ -421,9 +421,7 @@ often marked by pitch vibration and melismatic ornamentation.
           d3.select(this)
             .attr("fill", d3.color(base).brighter(0.8))
             .attr("filter", "url(#glow)");
-          // tooltip disabled
         })
-        // .on("pointermove", positionTooltip) // tooltip disabled
         .on("pointerleave", function (event, d) {
           if (currentRegion !== d.properties.name) {
             d3.select(this)
@@ -432,14 +430,12 @@ often marked by pitch vibration and melismatic ornamentation.
           } else {
             d3.select(this).attr("filter", "url(#neumorphic-pressed)");
           }
-          // tooltip.style("display", "none"); // tooltip disabled
         })
         .on("click", function (event, d) {
           regions.attr("fill", dd => safeColor(dd.properties.name))
             .attr("filter", "url(#neumorphic-raised)");
 
           d3.select(this).attr("filter", "url(#neumorphic-pressed)");
-
           playRegionAudio(d);
         });
 
@@ -500,164 +496,165 @@ often marked by pitch vibration and melismatic ornamentation.
       }
 
       // ---------- Macro panels (accordion behaviour) ---------------------
-      const macroPanels = new Map();
-      let openMacroLabel = null;
+      // ---------- Macro panels (accordion behaviour) ---------------------
+const macroPanels = new Map();
+let openMacroLabel = null;
 
-      function createMacroPanel(label) {
-        if (macroPanels.has(label)) return macroPanels.get(label);
+function createMacroPanel(label) {
+  if (macroPanels.has(label)) return macroPanels.get(label);
 
-        const panel = document.createElement("div");
-        panel.className = "macro-panel";
+  const panel = document.createElement("div");
+  panel.className = "macro-panel";
 
-        const bodyHtml = (macroDescriptions[label] || "").trim();
+  const bodyHtml = (macroDescriptions[label] || "").trim();
 
-        // add close button + body
-        panel.innerHTML = `
-          <button class="macro-close" aria-label="Close macro panel">×</button>
-          <div class="macro-panel-body">
-            ${bodyHtml}
-          </div>
-        `;
+  panel.innerHTML = `
+    <button class="macro-close" aria-label="Close macro panel">×</button>
+    <div class="macro-panel-body">
+      ${bodyHtml}
+    </div>
+  `;
 
-        // close behaviour for this panel
-        const btn = panel.querySelector(".macro-close");
-        if (btn) {
-          btn.addEventListener("click", (e) => {
-            e.stopPropagation();             // don't trigger map clicks
-            panel.style.display = "none";
-            if (openMacroLabel === label) {
-              openMacroLabel = null;
-            }
-          });
-        }
-
-        mount.appendChild(panel);
-        macroPanels.set(label, panel);
-        return panel;
-      }
-
-      function positionMacroPanel(label, svgNode) {
-        const panel = macroPanels.get(label);
-        if (!panel) return;
-
-        const posPref = macroPosPref[label] || "bottom";
-
-        const mapRect   = mount.getBoundingClientRect();
-        const labelRect = svgNode.getBoundingClientRect();
-        const panelRect = panel.getBoundingClientRect();
-
-        // 1️⃣ BASE left
-        let left = labelRect.left - mapRect.left + (labelRect.width / 2) - (panelRect.width / 2);
-        const minLeft = 9;
-        const maxLeft = mapRect.width - panelRect.width - 8;
-        if (left < minLeft) left = minLeft;
-        if (left > maxLeft) left = maxLeft;
-
-        // 2️⃣ BASE top (depends on "top" / "bottom")
-        let top;
-        if (posPref === "top") {
-          top = (labelRect.top - mapRect.top) - panelRect.height - 12;
-          if (top < 8) top = -250;
-        } else {
-          top = (labelRect.bottom - mapRect.top) + 12;
-          const maxTop = mapRect.height - panelRect.height + 100;
-          if (top > maxTop) top = maxTop;
-        }
-
-        // ⭐ 3️⃣ panel-specific nudge + border color
-        const macroOffsets = {
-          "Western Georgia":      { dx: -10, dy: 250, border: "#8ebeaeff" },
-          "Eastern Georgia":      { dx: 0,   dy: 200, border: "#dfc6a0ff" },
-          "Northwestern regions": { dx: 0,   dy: -50, border: "#7f8dabff" },
-          "Northeastern regions": { dx: 0,   dy: -70, border: "#cda1bcff" }
-        };
-
-        const off = macroOffsets[label] || { dx: 0, dy: 0, border: null };
-        left += off.dx;
-        top  += off.dy;
-
-        if (off.border) {
-          panel.style.border = `3px solid ${off.border}`;
-          const closeBtn = panel.querySelector(".macro-close");
-          if (closeBtn) {
-            // X repeats border color
-            closeBtn.style.color = off.border;
-            closeBtn.style.borderColor = off.border;
-          }
-        }
-
-        // 4️⃣ Apply to panel
-        panel.style.left = `${left}px`;
-        panel.style.top  = `${top}px`;
-      }
-
-      function scrollToPanel(panel, posPref = "bottom", duration = 600) {
-        const rect = panel.getBoundingClientRect();
-        const headerOffset = 80;  // tweak this so the top panel is fully visible
-        let targetY;
-
-        if (posPref === "top") {
-          // stop with panel nicely below the top (accounting for header/shift)
-          targetY = rect.top + window.scrollY - headerOffset;
-        } else {
-          // "bottom" preference: bring its bottom into view
-          const bottomOffset = 20; // small gap at bottom
-          targetY = rect.bottom + window.scrollY - window.innerHeight + bottomOffset;
-        }
-
-        smoothScrollTo(targetY, duration);
-      }
-
-      function smoothScrollTo(targetY, duration) {
-        const startY = window.scrollY;
-        const diff = targetY - startY;
-        const startTime = performance.now();
-
-        function step(now) {
-          const t = Math.min((now - startTime) / duration, 1); // 0 → 1
-          // simple ease-in-out (optional)
-          const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-          window.scrollTo(0, startY + diff * eased);
-          if (t < 1) requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
-      }
-
-      function openMacroPanel(label, svgNode) {
-        // close previous
-        if (openMacroLabel && openMacroLabel !== label) {
-          const prev = macroPanels.get(openMacroLabel);
-          if (prev) prev.style.display = "none";
-        }
-
-        const panel = createMacroPanel(label);
-        panel.style.display = "block";
-        positionMacroPanel(label, svgNode);
-        openMacroLabel = label;
-
-        const posPref = macroPosPref[label] || "bottom";
-        scrollToPanel(panel, posPref, 900); // 900ms = slower scroll
-      }
-
-      function toggleMacroPanel(label, svgNode) {
-        const existing = macroPanels.get(label);
-        if (existing && existing.style.display === "block") {
-          existing.style.display = "none";
-          openMacroLabel = null;
-          return;
-        }
-        openMacroPanel(label, svgNode);
-      }
-
-      function closeMacroPanelIfAny() {
-        if (!openMacroLabel) return;
-        const p = macroPanels.get(openMacroLabel);
-        if (p) p.style.display = "none";
+  const btn = panel.querySelector(".macro-close");
+  if (btn) {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      panel.style.display = "none";
+      if (openMacroLabel === label) {
+        const node = macroLabelNodes.get(label);
+        if (node) d3.select(node).text("▾ " + label);
         openMacroLabel = null;
       }
+    });
+  }
 
-      // --- Macro labels on SVG (colored like your spans) -----------------
+  mount.appendChild(panel);
+
+  macroPanels.set(label, panel);
+  return panel;
+}
+
+function positionMacroPanel(label, svgNode) {
+  const panel = macroPanels.get(label);
+  if (!panel) return;
+
+  const posPref = macroPosPref[label] || "bottom";
+
+  // viewport rects
+  const mapRect   = mount.getBoundingClientRect();
+  const labelRect = svgNode.getBoundingClientRect();
+
+  // ensure panel has measurable size (it is display:block before calling this)
+  const panelRect = panel.getBoundingClientRect();
+
+  // Compute left/top in *viewport* coords, then convert to *page* coords by adding scrollX/Y.
+  let left = labelRect.left + (labelRect.width / 2) - (panelRect.width / 2);
+  let top;
+
+  if (posPref === "top") {
+    top = labelRect.top - panelRect.height - 12;
+    // keep it on-screen-ish (relative to map area)
+    if (top < mapRect.top + 8) top = mapRect.top + 8;
+  } else {
+    top = labelRect.bottom + 12;
+    const maxTopViewport = mapRect.bottom - panelRect.height - 8;
+    if (top > maxTopViewport) top = maxTopViewport;
+  }
+
+  // Clamp horizontally within the map area (viewport coords)
+  const minLeftViewport = mapRect.left + 9;
+  const maxLeftViewport = mapRect.right - panelRect.width - 8;
+  if (left < minLeftViewport) left = minLeftViewport;
+  if (left > maxLeftViewport) left = maxLeftViewport;
+
+  const macroOffsets = {
+    "Western Georgia":      { dx: -10, dy: 250,  border: "#8ebeaeff" },
+    "Eastern Georgia":      { dx: 0,   dy: 350, border: "#dfc6a0ff" },
+    "Northwestern regions": { dx: 0,   dy: -50,  border: "#7f8dabff" },
+    "Northeastern regions": { dx: 0,   dy: -70,  border: "#cda1bcff" }
+  };
+
+  const off = macroOffsets[label] || { dx: 0, dy: 0, border: null };
+  left += off.dx;
+  top  += off.dy;
+
+  if (off.border) {
+    panel.style.border = `3px solid ${off.border}`;
+    const closeBtn = panel.querySelector(".macro-close");
+    if (closeBtn) {
+      closeBtn.style.color = off.border;
+      closeBtn.style.borderColor = off.border;
+    }
+  }
+
+  panel.style.left = `${left - mapRect.left}px`;
+panel.style.top  = `${top  - mapRect.top}px`;
+
+}
+
+function smoothScrollTo(targetY, duration) {
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  const startTime = performance.now();
+
+  function step(now) {
+    const t = Math.min((now - startTime) / duration, 1);
+    const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    window.scrollTo(0, startY + diff * eased);
+    if (t < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
+function scrollToPanel(panel, posPref = "bottom", duration = 600) {
+  const rect = panel.getBoundingClientRect();
+  const headerOffset = 80;
+  let targetY;
+
+  if (posPref === "top") {
+    targetY = rect.top + window.scrollY - headerOffset;
+  } else {
+    const bottomOffset = 20;
+    targetY = rect.bottom + window.scrollY - window.innerHeight + bottomOffset;
+  }
+
+  smoothScrollTo(targetY, duration);
+}
+
+function openMacroPanel(label, svgNode) {
+  if (openMacroLabel && openMacroLabel !== label) {
+    const prev = macroPanels.get(openMacroLabel);
+    if (prev) prev.style.display = "none";
+    const prevNode = macroLabelNodes.get(openMacroLabel);
+    if (prevNode) d3.select(prevNode).text("▾ " + openMacroLabel);
+  }
+
+  const panel = createMacroPanel(label);
+  panel.style.display = "block";
+  positionMacroPanel(label, svgNode);
+  openMacroLabel = label;
+
+  const node = svgNode || macroLabelNodes.get(label);
+  if (node) d3.select(node).text("▴ " + label);
+
+  const posPref = macroPosPref[label] || "bottom";
+  scrollToPanel(panel, posPref, 900);
+}
+
+function toggleMacroPanel(label, svgNode) {
+  const existing = macroPanels.get(label);
+  if (existing && existing.style.display === "block") {
+    existing.style.display = "none";
+    const node = svgNode || macroLabelNodes.get(label);
+    if (node) d3.select(node).text("▾ " + label);
+    openMacroLabel = null;
+    return;
+  }
+  openMacroPanel(label, svgNode);
+}
+
+
       gMacros.selectAll("text.macro-label")
         .data(Object.keys(macroGroups))
         .enter()
@@ -665,25 +662,21 @@ often marked by pitch vibration and melismatic ornamentation.
         .attr("class", "macro-label")
         .attr("x", d => macroLabelPos[d].x)
         .attr("y", d => macroLabelPos[d].y)
-        .text(d => d)
-        .text(d =>  "▾ " + d)
+        .text(d => "▾ " + d)
         .attr("font-size", 22)
         .attr("font-weight", 700)
         .attr("text-anchor", "middle")
         .attr("fill", d => {
-          if (d === "Eastern Georgia")      return "#cd9138"; // beige
-          if (d === "Western Georgia")      return "#2e9a78"; // green
-          if (d === "Northwestern regions") return "#4562a6"; // blue
-          if (d === "Northeastern regions") return "#c3679f"; // pink
+          if (d === "Eastern Georgia")      return "#cd9138";
+          if (d === "Western Georgia")      return "#2e9a78";
+          if (d === "Northwestern regions") return "#4562a6";
+          if (d === "Northeastern regions") return "#c3679f";
           return "#525050ff";
         })
         .style("cursor", "pointer")
-        .on("pointerenter", (event, label) => {
-          glowRegions(macroGroups[label]);
-        })
-        .on("pointerleave", (event, label) => {
-          unglowRegions(macroGroups[label]);
-        })
+        .each(function(d){ macroLabelNodes.set(d, this); })
+        .on("pointerenter", (event, label) => glowRegions(macroGroups[label]))
+        .on("pointerleave", (event, label) => unglowRegions(macroGroups[label]))
         .on("click", function (event, label) {
           event.stopPropagation();
           toggleMacroPanel(label, this);
@@ -716,10 +709,7 @@ often marked by pitch vibration and melismatic ornamentation.
         }
 
         function openPopover(regionName, itemEl) {
-          if (activePopover) {
-            activePopover.remove();
-            activePopover = null;
-          }
+          if (activePopover) { activePopover.remove(); activePopover = null; }
           if (activeItem) activeItem.classList.remove("is-active");
 
           const pop = document.createElement("div");
@@ -729,8 +719,7 @@ often marked by pitch vibration and melismatic ornamentation.
 
           const itemRect = itemEl.getBoundingClientRect();
           const colRect  = popCol.getBoundingClientRect();
-          const top = itemRect.top - colRect.top;
-          pop.style.top = `${top}px`;
+          pop.style.top = `${itemRect.top - colRect.top}px`;
 
           activeItem = itemEl;
           activeItem.classList.add("is-active");
@@ -772,7 +761,6 @@ often marked by pitch vibration and melismatic ornamentation.
         window.addEventListener("resize", repositionIfOpen);
       }
 
-      // ===================================================================
       // Fit map on resize
       window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -785,32 +773,92 @@ often marked by pitch vibration and melismatic ornamentation.
     const audioPlayerContainer = document.getElementById("audio-player-container");
     const audioElement         = document.getElementById("custom-audio");
     const nowPlaying           = document.getElementById("now-playing");
+    const nowPlayingPanel      = document.getElementById("now-playing-panel");
+    const nowPlayingMore       = document.getElementById("now-playing-more");
+
     const descriptionEl        = document.getElementById("region-description");
     const closeBtn             = document.getElementById("close-player");
+    const playBtn              = document.getElementById("audio-play");
+    const seekEl               = document.getElementById("audio-seek");
+    const timeEl               = document.getElementById("audio-time");
+    const volumeEl             = document.getElementById("audio-volume");
+    const muteBtn              = document.getElementById("audio-mute");
+
+    // Now Playing accordion toggle (NO d used here)
+    if (nowPlaying && nowPlayingPanel) {
+      nowPlaying.style.cursor = "pointer";
+      nowPlaying.addEventListener("click", () => {
+        nowPlayingPanel.classList.toggle("is-open");
+
+        const base = nowPlaying.dataset.base || nowPlaying.textContent.replace(/\.\.\.$/, "");
+        nowPlaying.dataset.base = base;
+        nowPlaying.textContent = nowPlayingPanel.classList.contains("is-open") ? base : (base + "...");
+      });
+    }
 
     const regionSuffix = {
-      Svaneti: "▾ Svanetian(<em>Svanuri</em>,<span class='ka'> სვანური</span>)",
-      Samegrelo: "▾ Mingrelian(<em>Megruli</em>,<span class='ka'> მეგრული</span>)",
-      Guria: "▾ Gurian(<em>Guruli</em>,<span class='ka'> გურული</span>)",
-      Racha: "▾ Rachian(<em>Rachuli</em>,<span class='ka'> რაჭული</span>)",
-      Lechkhumi: "▾ Lechkhumian(<em>Lechkhumuri</em>,<span class='ka'> ლეჩხუმური</span>)",
-      Imereti: "▾ Imeretian(<em>Imeruli</em>,<span class='ka'> იმერული</span>)",
-      Kakheti: "▾ Kakhetian(<em>Kakhuri</em>,<span class='ka'> კახური</span>)",
-      Tusheti: "▾ Tushetian(<em>Tushuri</em>,<span class='ka'> თუშური</span>)",
-      Khevsureti: "▾ Khevsurian(<em>Khevsuruli</em>,<span class='ka'> ხევსურული</span>)",
-      Khevi: "▾ Mokhevian(<em>Mokheuri</em>,<span class='ka'> მოხეური</span>)",
-      Pshavi: "▾ Pshavian(<em>Pshauri</em>,<span class='ka'> ფშაური</span>)",
-      Achara: "▾ Acharian(<em>Acharuli</em>,<span class='ka'> ჭარული</span>)",
-      "Kvemo Kartli": "▾ Kartlian(<em>Kartluri</em>,<span class='ka'> ქართლური</span>)",
-      "Ertso-Tianeti": "▾ Tianetian(<em>Tianuri</em>,<span class='ka'> თიანური</span>)",
-      "Meskhet-Javakheti": "▾ Meskhetian(<em>Meskhuri</em>,<span class='ka'> მესხური</span>)",
-      "South Ossetia(Samachablo)": "▾ Ossetian(<em>Iron </em>, <em>Ирон</em>, <span class='ka'> ოსური</span>)",
-      Abkhazia: "▾ Abkhazian(<em>Abkhazuri</em>,<span class='ka'> აფხაზური</span>)",
-      Tbilisi: "▾ Urban(<em>Kalakuri</em>,<span class='ka'> ქალაქური</span>)",
-      Mtiuleti: "▾ Mtiulian(<em>Mtiuluri</em>,<span class='ka'> მთიულური</span>)",
-      "Shida Kartli": "▾ Kartlian(<em>Kartluri</em>,<span class='ka'> ქართლური</span>)"
-      // add only the ones you want special names for
+      Svaneti: "Svanetian(<em>Svanuri</em>,<span class='ka'> სვანური</span>)",
+      Samegrelo: "Mingrelian(<em>Megruli</em>,<span class='ka'> მეგრული</span>)",
+      Guria: "Gurian(<em>Guruli</em>,<span class='ka'> გურული</span>)",
+      Racha: "Rachian(<em>Rachuli</em>,<span class='ka'> რაჭული</span>)",
+      Lechkhumi: "Lechkhumian(<em>Lechkhumuri</em>,<span class='ka'> ლეჩხუმური</span>)",
+      Imereti: "Imeretian(<em>Imeruli</em>,<span class='ka'> იმერული</span>)",
+      Kakheti: "Kakhetian(<em>Kakhuri</em>,<span class='ka'> კახური</span>)",
+      Tusheti: "Tushetian(<em>Tushuri</em>,<span class='ka'> თუშური</span>)",
+      Khevsureti: "Khevsurian(<em>Khevsuruli</em>,<span class='ka'> ხევსურული</span>)",
+      Khevi: "Mokhevian(<em>Mokheuri</em>,<span class='ka'> მოხეური</span>)",
+      Pshavi: "Pshavian(<em>Pshauri</em>,<span class='ka'> ფშაური</span>)",
+      Achara: "Acharian(<em>Acharuli</em>,<span class='ka'> აჭარული</span>)",
+      "Kvemo Kartli": "Kartlian(<em>Kartluri</em>,<span class='ka'> ქართლური</span>)",
+      "Ertso-Tianeti": "Tianetian(<em>Tianuri</em>,<span class='ka'> თიანური</span>)",
+      "Meskhet-Javakheti": "Meskhetian(<em>Meskhuri</em>,<span class='ka'> მესხური</span>)",
+      "South Ossetia(Samachablo)": "Ossetian(<em>Iron </em>, <em>Ирон</em>, <span class='ka'> ოსური</span>)",
+      Abkhazia: "Abkhazian(<em>Abkhazuri</em>,<span class='ka'> აფხაზური</span>)",
+      Tbilisi: "Urban(<em>Kalakuri</em>,<span class='ka'> ქალაქური</span>)",
+      Mtiuleti: "Mtiulian(<em>Mtiuluri</em>,<span class='ka'> მთიულური</span>)",
+      "Shida Kartli": "Kartlian(<em>Kartluri</em>,<span class='ka'> ქართლური</span>)"
     };
+
+    function fmtTime(sec) {
+      if (!isFinite(sec) || sec < 0) sec = 0;
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m}:${String(s).padStart(2, "0")}`;
+    }
+
+    function syncPlayIcon() {
+      if (!playBtn || !audioElement) return;
+      if (audioElement.paused) {
+        playBtn.textContent = "▶";
+        playBtn.setAttribute("aria-label", "Play");
+      } else {
+        playBtn.textContent = "⏸";
+        playBtn.setAttribute("aria-label", "Pause");
+      }
+    }
+
+    function syncSeekRange() {
+      if (!seekEl || !audioElement) return;
+      const dur = audioElement.duration;
+      if (isFinite(dur) && dur > 0) {
+        seekEl.max = String(dur);
+        seekEl.value = String(audioElement.currentTime || 0);
+      } else {
+        seekEl.max = "0";
+        seekEl.value = "0";
+      }
+    }
+
+    function syncTimeLabel() {
+      if (!timeEl || !audioElement) return;
+      timeEl.textContent = fmtTime(audioElement.currentTime || 0);
+    }
+
+    function syncMuteUI() {
+      if (!muteBtn || !audioElement) return;
+      muteBtn.classList.toggle("is-muted", audioElement.muted);
+      muteBtn.setAttribute("aria-label", audioElement.muted ? "Unmute" : "Mute");
+    }
 
     function playRegionAudio(d) {
       if (!audioPlayerContainer || !audioElement || !nowPlaying) return;
@@ -818,38 +866,49 @@ often marked by pitch vibration and melismatic ornamentation.
       if (!src) return;
 
       audioElement.src = src;
-      audioElement.play();
-      audioPlayerContainer.style.display = "block";   // or "flex" if you prefer
+      audioPlayerContainer.style.display = "block";
+      audioElement.play().catch(() => {});
 
-      nowPlaying.textContent =
-        `Now Playing: "${d.properties.title}" by ${d.properties.artist} (${d.properties.name})`;
+      const baseNow =
+        `Now Playing: "${d.properties.title || ""}" by ${d.properties.artist || ""} (${d.properties.name || ""})`;
+      nowPlaying.dataset.base = baseNow;
+      nowPlaying.textContent = baseNow + "...";
 
-      // 🔹 HEADER TEXT + COLOR (this is where your block goes)
+      if (nowPlayingMore) {
+        nowPlayingMore.innerHTML = `
+          <p class="left-align" style="margin:0; text-align:justify;">        
+            ${d.properties.about || ""}
+          </p>
+        `;
+      }
+//  <strong>Song:</strong> ${d.properties.title || ""}<br>
+//             <strong>Artist:</strong> ${d.properties.artist || ""}<br>
+//             <strong>Region:</strong> ${d.properties.name || ""}<br><br></br>
+
+
+      if (nowPlayingPanel) nowPlayingPanel.classList.remove("is-open");
+
+      // HEADER TEXT + COLOR
       const headerEl = document.getElementById("audio-accordion-header");
       if (headerEl) {
         const name   = d.properties.name;
         const suffix = regionSuffix[name] || name;
         headerEl.innerHTML = `${suffix} Tradition`;
 
-        // --- COLOR BY MACROREGION ---
         if (["Abkhazia","Samegrelo","Guria","Achara","Imereti"].includes(name)) {
-          headerEl.style.color = "#2e9a78";      // Western Georgia (green)
-        }
-        else if (["Shida Kartli","Kvemo Kartli","Kakheti","Tbilisi","Meskhet-Javakheti","South Ossetia(Samachablo)","Ertso-Tianeti"].includes(name)) {
-          headerEl.style.color = "#cd9138";      // Eastern Georgia (beige/gold)
-        }
-        else if (["Svaneti","Racha","Lechkhumi"].includes(name)) {
-          headerEl.style.color = "#4562a6";      // Northwestern regions (blue)
-        }
-        else if (["Khevi","Khevsureti","Tusheti","Mtiuleti","Pshavi"].includes(name)) {
-          headerEl.style.color = "#c3679f";      // Northeastern regions (pink)
-        }
-        else {
-          headerEl.style.color = "#202020";      // fallback
+          headerEl.style.color = "#66ab94ff";
+        } else if (["Shida Kartli","Kvemo Kartli","Kakheti","Tbilisi","Meskhet-Javakheti","South Ossetia(SSamachablo)","South Ossetia(Samachablo)"].includes(name)) {
+          headerEl.style.color = "#cfad78ff";
+        } else if (["Svaneti","Racha","Lechkhumi"].includes(name)) {
+          headerEl.style.color = "#65769aff";
+        } else if (["Khevi","Khevsureti","Tusheti","Mtiuleti","Pshavi","Ertso-Tianeti"].includes(name)) {
+          headerEl.style.color = "#bd7da5ff";
+        } else {
+          headerEl.style.color = "#202020";
         }
       }
 
-      // 🔹 DESCRIPTION TEXT
+      // DESCRIPTION TEXT
       if (descriptionEl) {
         const desc = regionDescriptions[d.properties.name];
         descriptionEl.innerHTML = desc || "No description available for this region yet.";
@@ -857,21 +916,28 @@ often marked by pitch vibration and melismatic ornamentation.
 
       currentRegion = d.properties.name;
 
-      // 🔹 SIMPLE MACRO BORDER CONTROL (you already had this)
+      // BORDER COLOR + PLAYER ACCENT
       const r = d.properties.name;
+      let accent = "#5a7263";
 
       if (["Abkhazia","Samegrelo","Guria","Achara","Imereti"].includes(r)) {
-        audioPlayerContainer.style.border = "3px solid #8ebeaeff";
-      } 
-      else if (["Javakheti","Shida Kartli","Kvemo Kartli","Kakheti","Tbilisi","South Ossetia(Samachablo)","Ertso-Tianeti"].includes(r)) {
-        audioPlayerContainer.style.border = "3px solid #dfc6a0ff";
+        accent = "#66ab94ff";
+      } else if (["Meskhet-Javakheti","Shida Kartli","Kvemo Kartli","Kakheti","Tbilisi","South Ossetia(Samachablo)"].includes(r)) {
+        accent = "#cfad78ff";
+      } else if (["Svaneti","Racha","Lechkhumi"].includes(r)) {
+        accent = "#65769aff";
+      } else if (["Khevi","Khevsureti","Tusheti","Mtiuleti","Pshavi","Ertso-Tianeti"].includes(r)) {
+        accent = "#bd7da5ff";
       }
-      else if (["Svaneti","Racha","Lechkhumi"].includes(r)) {
-        audioPlayerContainer.style.border = "3px solid #7f8dabff";
-      }
-      else if (["Khevi","Khevsureti","Tusheti","Mtiuleti","Pshavi"].includes(r)) {
-        audioPlayerContainer.style.border = "3px solid #cda1bcff";
-      }
+
+      audioPlayerContainer.style.border = `3px solid ${accent}`;
+      audioPlayerContainer.style.setProperty("--player-accent", accent);
+
+      syncPlayIcon();
+      syncSeekRange();
+      syncTimeLabel();
+      syncMuteUI();
+      if (volumeEl && audioElement) volumeEl.value = String(audioElement.volume ?? 1);
     }
 
     function closeAudioPlayer() {
@@ -879,12 +945,87 @@ often marked by pitch vibration and melismatic ornamentation.
       audioElement.pause();
       audioElement.currentTime = 0;
       audioPlayerContainer.style.display = "none";
+      syncPlayIcon();
+      syncSeekRange();
+      syncTimeLabel();
     }
 
-    if (closeBtn) {
-      closeBtn.addEventListener("click", closeAudioPlayer);
+    if (closeBtn) closeBtn.addEventListener("click", closeAudioPlayer);
+
+    // --- wire up custom controls (once) ---------------------------------
+    if (audioElement) {
+      audioElement.addEventListener("play",  syncPlayIcon);
+      audioElement.addEventListener("pause", syncPlayIcon);
+      audioElement.addEventListener("ended", () => { syncPlayIcon(); syncSeekRange(); });
+
+      audioElement.addEventListener("timeupdate", () => { syncSeekRange(); syncTimeLabel(); });
+      audioElement.addEventListener("loadedmetadata", () => { syncSeekRange(); syncTimeLabel(); });
+
+      audioElement.addEventListener("volumechange", syncMuteUI);
     }
 
-    // ====================== /AUDIO PLAYER (GROUPED) =======================
+    if (playBtn && audioElement) {
+      playBtn.addEventListener("click", () => {
+        if (audioElement.paused) audioElement.play().catch(() => {});
+        else audioElement.pause();
+      });
+    }
+
+    if (seekEl && audioElement) {
+      seekEl.addEventListener("input", () => {
+        const v = parseFloat(seekEl.value);
+        if (isFinite(v)) {
+          audioElement.currentTime = v;
+          syncTimeLabel();
+        }
+      });
+      seekEl.addEventListener("change", () => {
+        const v = parseFloat(seekEl.value);
+        if (isFinite(v)) audioElement.currentTime = v;
+      });
+    }
+
+    if (volumeEl && audioElement) {
+      volumeEl.addEventListener("input", () => {
+        const v = parseFloat(volumeEl.value);
+        if (isFinite(v)) audioElement.volume = Math.min(1, Math.max(0, v));
+      });
+    }
+
+    if (muteBtn && audioElement) {
+      muteBtn.addEventListener("click", () => {
+        audioElement.muted = !audioElement.muted;
+        syncMuteUI();
+      });
+      syncMuteUI();
+    }
+
+    syncPlayIcon();
+    syncSeekRange();
+    syncTimeLabel();
   };
+
+  // ==================== ACCORDION HEADER ARROW SYNC =====================
+  document.addEventListener("DOMContentLoaded", () => {
+    const panels = document.querySelectorAll(".accordion-panel");
+
+    panels.forEach(panel => {
+      const header = panel.previousElementSibling;
+      if (!header || !header.classList.contains("accordion-header")) return;
+
+      if (panel.classList.contains("is-open")) {
+        header.classList.add("is-open");
+      }
+
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(m => {
+          if (m.attributeName !== "class") return;
+          if (panel.classList.contains("is-open")) header.classList.add("is-open");
+          else header.classList.remove("is-open");
+        });
+      });
+
+      observer.observe(panel, { attributes: true, attributeFilter: ["class"] });
+    });
+  });
 })();

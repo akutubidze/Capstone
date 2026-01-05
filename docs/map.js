@@ -568,10 +568,10 @@ function positionMacroPanel(label, svgNode) {
   if (left > maxLeftViewport) left = maxLeftViewport;
 
   const macroOffsets = {
-    "Western Georgia":      { dx: -10, dy: 250,  border: "#8ebeaeff" },
-    "Eastern Georgia":      { dx: 0,   dy: 350, border: "#dfc6a0ff" },
-    "Northwestern regions": { dx: 0,   dy: -50,  border: "#7f8dabff" },
-    "Northeastern regions": { dx: 0,   dy: -70,  border: "#cda1bcff" }
+    "Western Georgia":      { dx: -10, dy: 400,  border: "#8ebeaeff" },
+    "Eastern Georgia":      { dx: 0,   dy: 330, border: "#dfc6a0ff" },
+    "Northwestern regions": { dx: 0,   dy: -400,  border: "#7f8dabff" },
+    "Northeastern regions": { dx: 0,   dy: -400,  border: "#cda1bcff" }
   };
 
   const off = macroOffsets[label] || { dx: 0, dy: 0, border: null };

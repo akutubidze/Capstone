@@ -54,10 +54,24 @@ body {
   background: url('img/banner_v3.jpg') top center / cover no-repeat;
   overflow: hidden;
   top: -2px;
-  padding-top: calc(clamp(150px, 18vw, 270px) + 1px);
+  padding-top: calc(clamp(150px, 18vw, 270px) + 20px);
   
 }
-
+.banner-title {
+  position: absolute;
+  top: 10rem; /* Adjust to lower or raise the title */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d0d9cd; /* Or any color that stands out on your banner */
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.5em;
+  text-align: center;
+  font-weight: 10;
+  width: 100%;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Optional: makes text more readable */
+}
 /* Tabs ON banner */
 .tablist{
   position: sticky;
@@ -66,17 +80,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5rem;                  /* <- space between tabs */
+  gap: 8rem;                  /* <- space between tabs */
   width: min(100%, 1200px);
   margin: 0 auto;
-  margin-top: -48px;           /* sit on banner; adjust -38..-64px */
+  margin-top: -30px;           /* sit on banner; adjust -38..-64px */
 }
 
 [role="tab"]{
   position: relative;
   background: none !important;
   border: none;
-  color: #e4e4e4;
+  color: #9e4242;
   /* let .tablist gap handle spacing: */
   margin: 0;                   /* <- was 0 1.5rem (kills gap) */
   /* keep a bit of hit-area here if you want */
@@ -186,7 +200,7 @@ ul li.indent { text-indent: 1rem; }
   }
 
 .macro-panel{
-  position: absolute;
+  position: fixed !important;
   max-width: 900px;
   width: min(900px, calc(100vw - 48px));
   background: #e7e7de;
@@ -199,10 +213,11 @@ ul li.indent { text-indent: 1rem; }
   font-family: "Lora", serif;
   font-size: 1rem;
   line-height: 1.3;
-  z-index: 500;
+   z-index: 999999 !important;
   opacity: 1;
   pointer-events: auto;
    isolation: isolate;
+   transform: translateZ(0);
   
 }
 .macro-close {
@@ -232,13 +247,13 @@ ul li.indent { text-indent: 1rem; }
 .tonal-svg { width: 80%; max-width: 1100px; display: block; margin: 0 auto; }
 
 /* Info icons positions */
-#panel-tonal { position: relative; }
+#panel-tonal { position: relative;z-index: 0; }
 /* .icon-header, .tonal-icon-header, .tonal-icon-header2 {
 cursor: pointer;position:absolute;z-index: 0;x
 } */
 .tonal-icon-header  { top: -30px; left: 240px;}
 .tonal-icon-header2 { 
-  /* position: fixed;        THIS is the key change */
+  position: relative;        
   top: -39px;
   left: 250px;
   /* transform: translate(-50%, -50%); */
@@ -552,6 +567,7 @@ h4.accordion-header{
   margin-right: 2rem;
   
 }
+
 /* Georgian script inside suffixes */
 .ka { font-size: 0.85em; font-style: normal; }
 

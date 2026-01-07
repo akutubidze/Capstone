@@ -528,7 +528,8 @@ function createMacroPanel(label) {
     });
   }
 
-  mount.appendChild(panel);
+  document.body.appendChild(panel);
+
 
   macroPanels.set(label, panel);
   return panel;
@@ -568,15 +569,14 @@ function positionMacroPanel(label, svgNode) {
   if (left > maxLeftViewport) left = maxLeftViewport;
 
   const macroOffsets = {
-    "Western Georgia":      { dx: -10, dy: 400,  border: "#8ebeaeff" },
-    "Eastern Georgia":      { dx: 0,   dy: 330, border: "#dfc6a0ff" },
-    "Northwestern regions": { dx: 0,   dy: -400,  border: "#7f8dabff" },
-    "Northeastern regions": { dx: 0,   dy: -400,  border: "#cda1bcff" }
+    "Western Georgia":      { dx: -10, dy: 440,  border: "#8ebeaeff" },
+    "Eastern Georgia":      { dx: 0,   dy: 310, border: "#dfc6a0ff" },
+    "Northwestern regions": { dx: 0,   dy: -450,  border: "#7f8dabff" },
+    "Northeastern regions": { dx: 0,   dy: -450,  border: "#cda1bcff" }
   };
 
   const off = macroOffsets[label] || { dx: 0, dy: 0, border: null };
-  left += off.dx;
-  top  += off.dy;
+
 
   if (off.border) {
     panel.style.border = `3px solid ${off.border}`;
@@ -587,8 +587,18 @@ function positionMacroPanel(label, svgNode) {
     }
   }
 
-  panel.style.left = `${left - mapRect.left}px`;
-panel.style.top  = `${top  - mapRect.top}px`;
+  const pad = 8; // small screen margin
+
+left = Math.max(pad, Math.min(left, window.innerWidth  - panelRect.width  - pad));
+top  = Math.max(pad, top);
+
+left += off.dx;
+top  += off.dy;
+
+panel.style.left = `${left + window.scrollX}px`;
+panel.style.top  = `${top  + window.scrollY}px`;
+
+
 
 }
 
@@ -633,13 +643,26 @@ function openMacroPanel(label, svgNode) {
   const panel = createMacroPanel(label);
   panel.style.display = "block";
   positionMacroPanel(label, svgNode);
+  
+  const pad = 12;
+const r = panel.getBoundingClientRect();
+let delta = 0;
+
+if (r.top < pad) delta = r.top - pad;
+else if (r.bottom > window.innerHeight - pad) delta = r.bottom - (window.innerHeight - pad);
+
+if (delta) smoothScrollTo(window.scrollY + delta, 500);
+
   openMacroLabel = label;
 
   const node = svgNode || macroLabelNodes.get(label);
   if (node) d3.select(node).text("▴ " + label);
 
   const posPref = macroPosPref[label] || "bottom";
-  scrollToPanel(panel, posPref, 900);
+//   const r = panel.getBoundingClientRect();
+if (r.top < 12 || r.bottom > window.innerHeight - 12) scrollToPanel(panel, posPref, 900);
+
+
 }
 
 function toggleMacroPanel(label, svgNode) {

@@ -1,8 +1,4 @@
-/* ===================== */
-/* THEME & TWEAKABLE VARS*/
-/* ===================== */
 :root{
-  /* Site theme */
   --tab-bg:#8fb7a5;
   --tab-bg-hover:#61977e;
   --tab-bg-active:#426756;
@@ -11,25 +7,21 @@
   --text:#434040;
   --content-max: 700px;
 
-  /* Map section layout (list + popovers) */
   --list-width: 160px;
   --col-gap: 20px;
 
-  /* Audio player theme */
   --audio-bg:#dbe0da;
   --audio-accent:#426756;
   --audio-knob:#426756;
   --audio-text:#434040;
 }
 
-/* ====== Global ====== */
 * { box-sizing: border-box;}
 
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* prevent stray horizontal scroll (Brave/others) */
-  
+  overflow-x: hidden;
 }
 
 body {
@@ -38,7 +30,6 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--page-bg);
-  
 }
 
 :focus-visible {
@@ -46,23 +37,21 @@ body {
   outline-offset: 2px;
 }
 
-/* ====== Banner ====== */
-/* Banner image: crops from the bottom, keeps top fixed, responsive */
 .banner-image{
-  position: relative; /* anchor tabs on top of banner */
+  position: relative;
   width: 100%;
   background: url('img/banner_v3.jpg') top center / cover no-repeat;
   overflow: hidden;
   top: -2px;
   padding-top: calc(clamp(150px, 18vw, 270px) + 20px);
-  
 }
+
 .banner-title {
   position: absolute;
-  top: 10rem; /* Adjust to lower or raise the title */
+  top: 10rem;
   left: 50%;
   transform: translateX(-50%);
-  color: #d0d9cd; /* Or any color that stands out on your banner */
+  color: #d0d9cd;
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
   word-spacing: 0.5em;
@@ -70,9 +59,9 @@ body {
   font-weight: 10;
   width: 100%;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Optional: makes text more readable */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
-/* Tabs ON banner */
+
 .tablist{
   position: sticky;
   top: 0;
@@ -80,10 +69,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8rem;                  /* <- space between tabs */
+  gap: 8rem;
   width: min(100%, 1200px);
   margin: 0 auto;
-  margin-top: -30px;           /* sit on banner; adjust -38..-64px */
+  margin-top: -30px;
 }
 
 [role="tab"]{
@@ -91,15 +80,11 @@ body {
   background: none !important;
   border: none;
   color: #9e4242;
-  /* let .tablist gap handle spacing: */
-  margin: 0;                   /* <- was 0 1.5rem (kills gap) */
-  /* keep a bit of hit-area here if you want */
-  padding: .4rem .8rem;        /* or leave as-is in your button rule */
+  margin: 0;
+  padding: .4rem .8rem;
   overflow: visible;
   font-size: clamp(21px, 1.9vw, 19px);
 }
-
-
 
 .tablist button[role="tab"] {
   color: #d0d9cd;
@@ -112,15 +97,16 @@ body {
   margin: 0 1.5rem;
   font-size: 1.5rem;
 }
+
 .tablist button[role="tab"][aria-selected="true"] {
-  color: #c4a234;   /* active */
+  color: #c4a234;
 }
+
 .tablist button[role="tab"]:focus-visible{
   outline: 3px solid #fff;
   outline-offset: 2px;
 }
 
-/* ====== Panels ====== */
 .panels{
   border-radius: 0 0 .0rem .75rem;
   background:#d0d9cd;
@@ -133,11 +119,11 @@ body {
   padding: clamp(12px, 2vw, 24px);
   min-height: 40vh;
 }
+
 [role="tabpanel"][data-active="true"]{
   display: block;
 }
 
-/* ====== 1ST TAB ====== */
 #panel-info { padding-bottom: 5rem; }
 
 .panel-content{
@@ -151,21 +137,19 @@ body {
 
 .panel-content h4{ margin-bottom: 0.9rem; }
 
-/* Indented list items */
 ul li.indent { text-indent: 1rem; }
 
-/* ====== 2ND TAB ====== */
 #panel-map .panel-content { max-width: var(--content-max); margin: 0 auto; }
 
 #map-root{ position: relative; z-index: auto;}
 #panel-map{ padding-bottom: 40rem; padding-top: 0rem; }
 
-/* popovers */
 #region-popovers{
   position: relative;
   min-height: 40px;
-  z-index: 20;        /* higher than the symbol */
+  z-index: 20;
 }
+
 .region-popover{
   position: absolute;
   left: 0;
@@ -181,9 +165,10 @@ ul li.indent { text-indent: 1rem; }
   font-size: var(--pop-size, 14px);
   line-height: 1.45;
   z-index: 10;
-} .region-popover .pop-title{ font-weight: 700; margin-bottom: .35rem; }
+}
 
-/* SVG labels */
+.region-popover .pop-title{ font-weight: 700; margin-bottom: .35rem; }
+
 #geo-map .region-label {
   font-family: "Lora", serif;
   font-weight: 570;
@@ -192,12 +177,11 @@ ul li.indent { text-indent: 1rem; }
   pointer-events: none;
 }
 
-/* ====== Macro panels ====== */
 .macro-panels-layer{
-   position: absolute; 
-   inset: 0; 
-   pointer-events: none; 
-  }
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 
 .macro-panel{
   position: absolute !important;
@@ -213,54 +197,65 @@ ul li.indent { text-indent: 1rem; }
   font-family: "Lora", serif;
   font-size: 1rem;
   line-height: 1.3;
-   z-index: 999999;
+  z-index: 999999;
   opacity: 1;
   pointer-events: auto;
-    isolation: isolate;
+  isolation: isolate;
   transform: translateZ(0);
 }
+
 .macro-close {
-  position: absolute; top: 6px; right: 10px;
-  width: 22px; height: 22px; border-radius: 999px;
-  border: 2px solid currentColor; background: transparent;
-  font-size: 20px; line-height: 1; cursor: pointer; padding: 0;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
 }
 
-/* Macro label text */
 .macro-label{ font-weight: 700; font-size: 24px; text-anchor: middle; }
 
-/* Tooltip on map */
 #region-list .region-item{ display: block; padding: 8px 10px; line-height: 1.2; cursor: pointer; border-radius: 6px; white-space: nowrap; }
 #region-list .region-item:hover, #region-list .region-item.is-active{ background: rgba(0,0,0,0.06); }
 
 #map-tooltip {
-  position: absolute; display: none; background: #fff; border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 10px; pointer-events: none;
-  z-index: 1000; font-size: 14px; max-width: 260px; border: 1px solid #ccc; color: #202020;
+  position: absolute;
+  display: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 10px;
+  pointer-events: none;
+  z-index: 1000;
+  font-size: 14px;
+  max-width: 260px;
+  border: 1px solid #ccc;
+  color: #202020;
   font-family: "Lora", serif;
 }
 
-/* ====== Tonal Chart ====== */
 .chart-legend { max-width: 700px; margin: 0 auto; font-size: 16px; padding-bottom: 0px; color:var(--text); }
 .chart-instr{ max-width: 610px; margin: 0 auto; font-size: 17px; padding-bottom: 0px; padding-top: 0px; color:#2c2a2a; }
-.tonal-svg { width: 80%; max-width: 1100px; display: block; margin: 0 auto; }
+.tuning-svg { width: 80%; max-width: 1100px; display: block; margin: 0 auto; }
 
-/* Info icons positions */
-#panel-tonal { position: relative;z-index: 0; }
-/* .icon-header, .tonal-icon-header, .tonal-icon-header2 {
-cursor: pointer;position:absolute;z-index: 0;x
-} */
-.tonal-icon-header  { top: -30px; left: 240px;}
-.tonal-icon-header2 { 
+#panel-tuning { position: relative; z-index: 0; }
+
+.tuning-icon-header  { top: -30px; left: 240px;}
+
+.tuning-icon-header2 { 
   position: relative;        
   top: -39px;
   left: 250px;
-  /* transform: translate(-50%, -50%); */
   z-index: 0;
   pointer-events: auto;
 }
 
-/* ====== Audio player ====== */
 .audio-player{
   position: fixed;
   top: 10px;
@@ -280,14 +275,12 @@ cursor: pointer;position:absolute;z-index: 0;x
   overflow: visible !important;
   width: 500px;
   max-width: 100%;
-
 }
 
 .audio-close{
-  position: absolute;   /* not fixed */
+  position: absolute;
   top: 10px;
   right: -15px;
-
   border: none;
   background: none;
   color: var(--player-accent);
@@ -295,21 +288,15 @@ cursor: pointer;position:absolute;z-index: 0;x
   font-weight: 900;
   cursor: pointer;
   line-height: 1;
-
-  /* remove these (they break it across screens) */
-  /* bottom: auto; */
 }
-
-
 
 .audio-now{ 
   font-size: 17px; 
   margin: 0 0 0px 0px; 
   font-weight: 550; 
-  color:#434040 }
+  color:#434040
+}
 
-/* Audio controls */
-/* outer wrapper around custom player row */
 .audio-border-wrap {
   width: 100%;
   margin-left: .2rem;
@@ -318,23 +305,19 @@ cursor: pointer;position:absolute;z-index: 0;x
   display: block;
 }
 
-/* hide native chrome completely (we use only JS API) */
 #audio-player-container audio {
   display: none;
 }
 
-/* the “white pill” panel that you can recolor */
 .audio-controls {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #d0d9cd;      /* ← change this to any color you want */
+  background: #d0d9cd;
   border-radius: 999px;
   padding: 6px 10px;
-  
 }
 
-/* play/pause button */
 #audio-play {
   border: none;
   background: var(--player-accent);
@@ -350,7 +333,6 @@ cursor: pointer;position:absolute;z-index: 0;x
   display: flex;
   align-items: center;
   justify-content: center;
-  /* filter: saturate(10) contrast(0.9); */
 }
 
 #audio-play.paused {
@@ -358,8 +340,6 @@ cursor: pointer;position:absolute;z-index: 0;x
   margin-top: 1.3rem
 }
 
-
-/* time display */
 #audio-time {
   font-size: 0.95rem;
   white-space: nowrap;
@@ -367,27 +347,28 @@ cursor: pointer;position:absolute;z-index: 0;x
 }
 
 #audio-seek { 
-  accent-color: 
-  var(--player-accent); 
+  accent-color: var(--player-accent); 
   width: 15.5rem;
   margin-top: 1.23rem; 
   height: 3px;
 } 
+
 #audio-seek::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Necessary to override default look */
-  background: var(--player-accent); /* Your desired color */
+  -webkit-appearance: none;
+  background: var(--player-accent);
   width: 19px;
   height: 14px;
-  border-radius: 50%; /* Makes it round */
+  border-radius: 50%;
 }
+
 #audio-seek::-moz-range-thumb {
-  background: var(--player-accent);   /* ← same color */
+  background: var(--player-accent);
   width: 19px;
   height: 14px;
-  
   border-radius: 50%;
   cursor: pointer;
 }
+
 #now-playing {
   margin-left: 0.5rem;
   margin-bottom: 0;
@@ -396,41 +377,38 @@ cursor: pointer;position:absolute;z-index: 0;x
 #now-playing-panel{
   margin-left: 0.5rem;
   padding-top: 1rem;
-margin-top: 0rem;
+  margin-top: 0rem;
   margin-bottom: -1rem;
   font-size: 1.05rem;
   line-height: 1rem;
   margin-right: 2rem;
 }
-/* Remove dots when open */
+
 #now-playing.is-open::after{
   content: "";
-
 }
+
 #now-playing.accordion-header::before{
   content: none !important;
 }
 
-/* Mute button (keeps your SVG) */
 #audio-mute{
   border: none;
   background: transparent;
   padding: 0;
-  margin-top: 1.3rem;         /* match others */
+  margin-top: 1.3rem;
   line-height: 0;
   cursor: pointer;
-  position: relative;         /* needed for the “X” overlay */
-  color: var(--player-accent);             /* <-- ICON COLOR CONTROL (change this) */
+  position: relative;
+  color: var(--player-accent);
 }
 
-/* size/location of the svg icon */
 #audio-mute svg{
-  width: 28px;                /* <-- ICON SIZE CONTROL */
+  width: 28px;
   height: 28px;
   display: block;
 }
 
-/* Draw an X over the icon when muted */
 #audio-mute.is-muted::before,
 #audio-mute.is-muted::after{
   content:"";
@@ -439,59 +417,58 @@ margin-top: 0rem;
   top: 50%;
   width: 26px;
   height: 2.5px;
-  background: currentColor;   /* uses same color as icon */
+  background: currentColor;
   transform-origin: center;
 }
+
 #audio-mute.is-muted::before{ transform: translate(-50%,-50%) rotate(45deg); }
 #audio-mute.is-muted::after { transform: translate(-50%,-50%) rotate(-45deg); }
 
-/* Volume slider: size + color + thumb */
 #audio-volume{
-  accent-color: var(--player-accent);      /* <-- SLIDER COLOR CONTROL (match seek) */
-  width: 3.2rem;                /* <-- VOLUME LENGTH CONTROL */
+  accent-color: var(--player-accent);
+  width: 3.2rem;
   margin-top: 1.3rem;
   height: 3px;
 }
 
-/* Thumb (Chromium/Safari) */
 #audio-volume::-webkit-slider-thumb{
   -webkit-appearance: none;
-  background: var(--player-accent);        /* <-- THUMB COLOR CONTROL */
+  background: var(--player-accent);
   width: 19px;
   height: 14px;
   border-radius: 50%;
 }
 
-/* Thumb (Firefox) */
 #audio-volume::-moz-range-thumb{
-  background: var(--player-accent);        /* <-- THUMB COLOR CONTROL */
+  background: var(--player-accent);
   width: 19px;
   height: 14px;
   border-radius: 50%;
   cursor: pointer;
 }
+
 #audio-player-container{ z-index: 999999 !important; }
 
-/* Color helpers */
 .beige { color: #cd9138; font-size: 20pt; font-weight: bold; }
 .green { color: #2e9a78; font-size: 20pt; font-weight: bold; }
 .blue  { color: #4562a6; font-size: 20pt; font-weight: bold; }
 .pink  { color: #c3679f; font-size: 20pt; font-weight: bold; }
 
-/* ====== Accordions ====== */
 .accordion-block{ 
   margin-top: 0px; 
   font-size: 1.8rem; 
   margin-bottom: 0rem; 
   margin-left: 3.5rem; 
 }
+
 .accordion-header{ 
   position: relative; 
   margin-top: 0.1rem;
   margin-left: -1.8rem; 
   font-size: 1.3rem; 
   font-weight: 500;
- }
+}
+
 .accordion-header::before{
   content: "▾"; 
   display: inline-block; 
@@ -501,13 +478,14 @@ margin-top: 0rem;
   vertical-align: middle; 
   font-size: 1.7rem;
 }
-.tonal-icon-header::before, .tonal-icon-header2::before { content: none !important; }
 
+.tuning-icon-header::before, .tuning-icon-header2::before { content: none !important; }
 
 #audio-player-container .accordion-header::before { 
   color: currentColor; 
   font-size: 1.9rem; 
-  margin-left: 0.2rem; }
+  margin-left: 0.2rem;
+}
 
 .accordion-header.is-open::before{ transform: rotate(180deg); }
 
@@ -528,10 +506,9 @@ h4.accordion-header{
   transition: max-height 0.20s ease, opacity 0.05s ease;
   opacity: 0; 
   padding: 0;
-   position: relative; /* REQUIRED for z-index to work */
-  z-index: 50;        /* higher than the symbol */
+  position: relative;
+  z-index: 50;
 }
-
 
 .accordion-panel.is-open{
   max-height: 2000px; 
@@ -542,61 +519,46 @@ h4.accordion-header{
   margin-left: -1.7rem;
   background:#d0d9cd;
   font-size: 1rem;
-  background: #d0d9cd;
   z-index: 50;
 }
 
-
-
 #audio-player-container .accordion-panel.is-open { 
   border: none !important; 
-  padding-top: 5px !important;  /* <-- this is the spacing you want */
+  padding-top: 5px !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
   padding-bottom: 15px !important;
   border-radius: 0 !important; 
   margin-top: 0px;
-  
-  
 }
+
 #region-description{
-  margin-top: -1.5rem;
+  margin-top: -1.3rem;
   line-height: 1rem;
   margin-bottom: 0.5rem;
   margin-right: 2rem;
-  
 }
 
-/* Georgian script inside suffixes */
 .ka { font-size: 0.85em; font-style: normal; }
 
-/* “Play Sequence” helpers */
 .legend-line { position: absolute; height: 1px; background: #444; }
 .legend-label { position: absolute; font-size: 16px; color: #6a6464; }
 
-/* ====== Responsive ====== */
-/* Phones */
 @media (max-width: 480px){
   .banner-image{ padding-top: 40%;position: relative; }
   
-  /* ====== Tabs (sticky, centered, sitting on banner) ====== */
-.tablist{
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;   /* center names */
-  gap: 1rem;                /* space between names */
-
-  /* center container; remove lateral offset */
-  width: min(100%, 1200px);
-  margin: 0 auto;
-
-  /* pull the sticky bar up to overlap the banner visually */
-  margin-top: -48px;         /* tweak: -38 to -64px depending on taste */
-}
+  .tablist{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    margin-top: -48px;
+  }
 
   .tablist [role="tab"]{ 
     padding: .55rem .8rem; 
@@ -604,11 +566,10 @@ h4.accordion-header{
     margin: 0 .75rem; 
   }
 
-  .tonal-svg{ width: 94%; }
+  .tuning-svg{ width: 94%; }
   #audio-player-container{ width: min(92vw, 520px); right: 4vw; left: 4vw; }
 }
 
-/* Tablets */
 @media (min-width:600px) and (max-width:1024px){
   .banner-image{ padding-top: 22%; }
   .tablist{
@@ -617,10 +578,8 @@ h4.accordion-header{
     justify-content:center;
     gap: .35rem;
   }
- 
 
-
-  .tonal-svg{ width: 92%; }
+  .tuning-svg{ width: 92%; }
   #audio-player-container{ width: 520px; right: 12px; }
   .macro-panel{ font-size: 0.98rem; padding-left: 28px; padding-right: 28px; z-index: 9999;}
 }

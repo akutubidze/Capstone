@@ -1,488 +1,846 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <!-- Responsive & iOS phone numbers -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="format-detection" content="telephone=no" />
-  <title>Georgian Folk Music</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:,">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Georgian Folk Music</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:," />
+  </head>
 
-  <!-- Banner (steady, non-sticky) -->
-  <div class="banner-image" role="img" aria-label="Georgian Folk Music banner">
-    <h1 class="banner-title">Regional Geography and Tuning Systems of Traditional Georgian Folk Music</h1>
+  <body>
+    <div class="banner-image" role="img" aria-label="Georgian Folk Music banner">
+      <h1 class="banner-title">
+        Regional Geography and Tuning Systems of Traditional Georgian Folk Music
+      </h1>
 
-    <!-- Tabs sitting ON the banner -->
-    <nav class="tablist" role="tablist" aria-label="Sections">
-      <button role="tab" id="tab-info"  aria-controls="panel-info"  aria-selected="true">About</button>
-      <button role="tab" id="tab-map"   aria-controls="panel-map"   aria-selected="false">Map</button>
-      <button role="tab" id="tab-tonal" aria-controls="panel-tonal" aria-selected="false">Tonal Chart</button>
-    </nav>
-  </div>
-
-  <!-- Panels -->
-  <main class="panels">
-    <!-- Panel 1: Information -->
-    <section id="panel-info" role="tabpanel" aria-labelledby="tab-info" tabindex="0" data-active="true">
-      <div class="panel-content">
-        <p class="left-align" 
-           style="margin-top: 70px; margin-bottom: 10px; text-align:justify; font-size: 1.3rem;">
-The website provides an overview of the sound features of 
-traditional folk music from the Republic of Georgia and allows users to explore its regional variations through visualizations.
-It also offers an opportunity to hear the musical scale traditionally used and still maintained by local singers.
-</p>
-
-        <p class="left-align" style="margin-bottom: 20px; text-align:justify; font-size: 1.3rem;">
-          Use the tabs above to navigate the site and access an interactive map and chart 
-              that allow to hear folk songs from different regions of Georgia, 
-              along with the tuning harmonies typical of traditional Georgian music.
-              
-<p class="left-align" style="margin-bottom: 30px; text-align:justify; font-size: 1.3rem;">
-       <svg
-    width="60"
-    height="60"
-    viewBox="0 0 24 24"
-    style="vertical-align:-23px; margin-left:-65px; color:#628374; cursor:pointer;"
-  >
-    <path fill="currentColor"
-      d="M3 9v6h4l5 5V4L7 9H3zm9-3.5v2.1c1.77.77 3 2.52 3 4.4s-1.23 3.63-3 4.4v2.1c2.89-.86 5-3.54 5-6.5s-2.11-5.64-5-6.5z"/>
-  </svg>
-        The full experience of this site requires sound. Please make sure your audio is on.
-    
-        </p>
-
-        <h4>About Georgian Traditional Folk Music</h4>
-        <p class="left-align" style="text-align:justify">
-          Georgian traditional music is polyphonic and typically performed in three voices. 
-          It is widespread across Georgia in the South Caucasus. While three-part singing is most common, there are also examples of two- and four-voice songs. 
-          Many songs are performed by large choirs, which usually require at least seven singers. 
-          Some choir pieces are antiphonal, with the ensemble divided into two groups that alternate parts of the song. 
-          At the same time, trios and solo pieces are also part of the tradition, and many songs are accompanied by instruments.
-        </p>
-
-        <p class="left-align" style="text-align:justify">
-          In Georgian multipart singing, each vocal part has a conventional name that reflects 
-          its pitch range, vocal quality, and function within the ensemble. 
-          Singers commonly refer to these parts using simple ordinal numbers. 
-        </p>
-
-        <ul> 
-          <li><strong>Pirveli</strong> (“first”) refers to the highest voice, roughly comparable to a soprano.</li> 
-          <li><strong>Meore</strong> ("second") usually falls within the alto range and often carries the solo line and main melody.</li> 
-          <li><strong>Bani</strong> is the Georgian term for the bass voice and represents 
-            the lowest part, performed either by a single singer or by a group.</li> 
-        </ul>
-
-        In addition to these, there are specialized vocal styles such as "<strong>Krimanchuli</strong>" (<i>krimančuli</i>) which is equivalent to yodeling, and "<strong>Gamkivani</strong>" (<i>gamk’ivani</i>) — a register between yodeling and chest voice.
-
-        <br>
-
-        <h4>Geographical Context of Georgian Folk Music</h4>
-        <p class="left-align" style="text-align:justify">
-          <a href="https://en.wikipedia.org/wiki/Georgia_(country)" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Georgia</a> 
-          is located in the <a href="https://en.wikipedia.org/wiki/South_Caucasus" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">South Caucasus</a> 
-          and extends east to west. 
-          It is situated between the <a href="https://en.wikipedia.org/wiki/Greater_Caucasus" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Greater Caucasus</a> 
-          mountains to the north and 
-          the <a href="https://en.wikipedia.org/wiki/Lesser_Caucasus" target="_blank"
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Lesser Caucasus</a> mountains to the south. 
-          The southern slopes of the Greater Caucasus form the highest parts of the country, 
-          which gradually descend into plains toward the center before rising again into the plateaus of the 
-          Lesser Caucasus.
-        </p>
-        <p class="left-align" style="text-align:justify">
-          Most importantly, Georgia is divided into <strong>Eastern</strong> and <strong>Western</strong> 
-          parts by the 
-          <a href="https://en.wikipedia.org/wiki/Likhi_Range" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Likhi</a> mountain range, 
-          which runs north to south. 
-          This range functions as a natural boundary — first by creating climatic differences and acting as a 
-          watershed between the <a href="https://en.wikipedia.org/wiki/Black_Sea" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Black Sea</a> and 
-          <a href="https://en.wikipedia.org/wiki/Caspian_Sea" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Caspian Sea</a> basins, 
-          and second by serving as the country’s major 
-          cultural divide.
-        </p>
-        <p class="left-align" style="text-align:justify">
-          Cultural elements shaped by geography include language and accent, traditional dress, cuisine, and other social customs. 
-          Singing and dancing are also part of these distinctions. 
-          Most Georgians can easily distinguish between westerners and easterners by their speech, behavior, and sometimes even appearance. 
-          Westerners are often described as livelier and more energetic, while easterners are seen as more composed and prudent.
-        </p>
-        <p class="left-align" style="text-align:justify">
-          Besides, the country’s physical landscape, together with socio-political factors, shaped the early formation of political and administrative divisions, which laid the foundation for Georgia’s historical regions around the 9th century. Today, Georgia comprises about 20 historical regions.
-        </p>
-
-        <h4>Linguistic Context of Georgian Folk Music</h4>
-        <p class="left-align" style="text-align:justify">
-          Folk songs in Georgia are performed in six different languages: 
-          <a href="https://en.wikipedia.org/wiki/Georgian_language" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Georgian</a>,
-          <a href="https://en.wikipedia.org/wiki/Mingrelian_language" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Mingrelian</a>,
-          <a href="https://en.wikipedia.org/wiki/Svan_language" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Svan</a>,
-          <a href="https://en.wikipedia.org/wiki/Laz_language" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Laz</a>,
-          <a href="https://en.wikipedia.org/wiki/Abkhaz_language" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Abkhazian</a>,
-          and
-          <a href="https://en.wikipedia.org/wiki/Ossetian_language" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Ossetian</a>.
-        </p>
-        <p class="left-align" style="text-align:justify">
-          Two of these languages – Abkhazian and Ossetian – belong to the 
-          <a href="https://en.wikipedia.org/wiki/Northwest_Caucasian_languages" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Northwest Caucasian</a>
-          and 
-          <a href="https://en.wikipedia.org/wiki/Indo-European_languages" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Indo-European</a> 
-          language families. 
-          The regions where they are spoken are inhabited by Abkhazians and Ossetians, 
-          non-Georgian ethnic groups who historically lived within the Georgian kingdom but whose 
-          territories are not administered by Georgia today. Because of long-standing cultural, geographical, 
-          and historical ties, their folk singing traditions are included alongside Georgian ones in this 
-          overview.
-        </p>
-
-        <p class="left-align" style="text-align:justify">
-          The remaining four – Georgian, Mingrelian, Laz, and Svan – belong to the 
-          <a href="https://en.wikipedia.org/wiki/Kartvelian_languages" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Kartvelian</a> (South Caucasian) 
-          language family, with Georgian serving as the dominant and most widely spoken language. 
-        </p>
-        <ul>
-          <li style="list-style-type: disc;">Mingrelian and Laz form the 
-            <a href="https://en.wikipedia.org/wiki/Zan_languages" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Zan</a> subgroup.</li>
-          <li style="list-style-type: circle; margin-left: 1.5rem;"><i>Mingrelian</i> is spoken in Samegrelo, a central-western region along the Black Sea.</li>
-          <li style="list-style-type: circle; margin-left: 1.5rem;"><i>Laz</i>, on the other hand, 
-            is spoken in <a href="https://en.wikipedia.org/wiki/Lazistan" target="_blank" 
-          style="color:#3a6040; text-decoration:none;font-weight:bold;">Lazistan</a>, 
-          further southwest in the Lesser Caucasus, now within modern-day Turkey. Laz songs are not included in this project but may be added in future expansions.</li>
-          <li style="list-style-type: disc;">Svan is spoken in the highland region of Svaneti, in Northwestern Georgia. It is considered the most archaic Kartvelian language, preserving features that have disappeared from Georgian, Mingrelian, and Laz.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Panel 2: Map -->
-    <section id="panel-map" role="tabpanel" aria-labelledby="tab-map" tabindex="0" data-active="false">
-      <div class="panel-content">
-        <h2></h2>
-        <p class="left-align" style="margin-top: 70px; margin-bottom: 40px; text-align:justify; font-size: 1.3rem;">
-          The interactive map below allows you to explore traditional Georgian folk songs in relation to their regional origins.
-          The map is divided into historical regions of Georgia. Each historical region on the map can be selected to play a song from that region.
-          This makes it possible to hear the stylistic features specific to each area.
-        </p>
-
-        <div class="panel-content">
-          <h4>Distribution of folk music tradition</h4>
-          <img
-            src="img/likhi_map.png"   
-            alt="Map with Likhi Mountain Range"
-            style="display:block; max-width:100%; height:auto; margin:0 auto 12px;"
-          >
-          <p class="left-align" style="text-align:justify">
-            Traditional music in Georgia varies throughout the country, with most regions having their own distinctive styles. 
-            The classification of these styles is rooted in local oral traditions, and the most common division is between <strong>East</strong> and <strong>West</strong>.
-          </p>
-          <ul>
-            <li><strong>Western</strong> tradition — includes songs from the regions located west of the Likhi watershed ridge. 
-              These songs are marked by a livelier and more dynamic tonal character, with all three voices often carrying independent melodies while remaining harmonious.</li>
-            <li><strong>Eastern</strong> tradition — encompasses the regions east of the watershed.
-              Folk music from Eastern Georgia is generally more drone-based, with the middle voice leading and featuring fluid, ornamental, and melismatic elements.</li>
-          </ul>
-          <p class="left-align" style="text-align:justify">
-            The sound also differs between the northern highlands (Greater Caucasus) and the southern plains (Lesser Caucasus).<br>
-          </p>
-          <p class="left-align" style="text-align:justify">
-            The map also groups regions, highlighting areas where musical traditions share similar characteristics. This grouping is entirely conceptual and is intended to emphasize stylistic similarities in folk music among regions brought together under these constructed geographical labels.<br>
-          </p>
-          <p class="left-align" style="text-align:justify">
-            The <strong>Northwestern</strong> grouping brings together regions located in the northwestern highlands, such as Svaneti, Racha, and Lechkhumi, 
-            which—while distinct—share similar singing practices and traditions, including full-voiced singing with pitch slides and the use of round dances.
-          </p>
-          <p class="left-align" style="text-align:justify; margin-bottom: 50px;">
-            Likewise, <strong>Northeastern</strong> includes several diverse regions — Khevi, Khevsureti, Mtiuleti, Pshavi, and Tusheti — 
-            that also share common traits in their folk music, such as a dominance of two-part and drone-based singing, performed in a subtle, nasal, and raw manner, with a stronger emphasis on poetry and solo singing.
-          </p>
-          <p class="left-align" style="text-align:justify">
-            Georgia’s complex terrain - marked by mountains, valleys, and limited road access - has contributed to the development of distinct vocal styles across its regions. 
-In general, song tempo begins at a slower pace in the east and gradually becomes faster and more energetic toward the west. 
-          </p>
-          <p class="left-align" style="text-align:justify">
-           - Eastern traditions tend to feature extended vowel sounds and rich melismas.<br>
-- As one moves toward central regions like Kartli and Imereti, the pace quickens and the singing becomes more syllabic and lively, resulting in the most 
-rapid-paced songs in western areas such as Guria and Achara.<br>
-- In the northern highlands, the style shifts again: songs are typically sung with greater vocal power, using open, 
-full-throated techniques that reflect the mountainous environment.<br>
-- Southern Georgia, by contrast, maintains vocal traits more in line with eastern practices.
-          </p>
-          <p class="left-align" style="text-align:justify">
-            For more detailed insights into each province and macroregion, explore the interactive map below.
-          </p>
-        </div>
-
-      <div id="map-container"
-     style="
-       width: 900px;        /* control width */
-       height: auto;        /* let SVG keep aspect ratio */
-       margin: 40px auto;   /* center horizontally + vertical spacing */
-       transform: translateX(-150px) translateY(0px); /* move on x / y */
-     ">  
-<div id="map-root"></div>
-</div>
-        <!-- (kept) SVG hover tooltip for the map -->
-        <div id="map-tooltip" style="position:absolute; display:none;"></div>
-
-        <!-- Grey swatch + caption -->
-        <div style="display:flex; align-items:flex-start; gap:12px; margin-top: 10px;">
-          <span
-            style="display:inline-block; 
-            width:195px; 
-            height:35px; 
-            background:#b3b3b3; 
-            margin-right:10px; 
-            margin-left: -90px; 
-            border-radius:0px; 
-            border:1px solid #8a8686; 
-            vertical-align: middle;"
-          ></span>
-          <p class="left-align" style="margin: 10px 0; text-align:justify; font-size: 1.3rem;">
-            Abkhazia and Samachablo (South Ossetia) are shown in grey to reflect their current separation from Georgia. 
-            Although these regions have different ethnic and linguistic identities, their historical inclusion within Georgian statehood and their place in the wider Caucasus 
-            cultural landscape have contributed to similarities in vocal traditions shared with other parts of Georgia.
-          </p>
-        </div>
-
-        <!-- Abkhazia/Ossetia accordion block (unchanged) -->
-        <div class="accordion-block">
-          <div class="accordion-header tonal-icon-header2">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 550 550"
-              style="display:block; color:#7c9f8f; cursor:pointer;"
-            >
-              <path fill="currentColor"
-                d="M255.992,0.008C114.626,0.008,0,114.626,0,256s114.626,255.992,255.992,255.992
-		C397.391,511.992,512,397.375,512,256S397.391,0.008,255.992,0.008z M300.942,373.528c-10.355,11.492-16.29,18.322-27.467,29.007
-		c-16.918,16.177-36.128,20.484-51.063,4.516c-21.467-22.959,1.048-92.804,1.597-95.449c4.032-18.564,12.08-55.667,12.08-55.667
-		s-17.387,10.644-27.709,14.419c-7.613,2.782-16.225-0.871-18.354-8.234c-1.984-6.822-0.404-11.161,3.774-15.822
-		c10.354-11.484,16.289-18.314,27.467-28.999c16.934-16.185,36.128-20.483,51.063-4.524c21.467,22.959,5.628,60.732,0.064,87.497
-		c-0.548,2.653-13.742,63.627-13.742,63.627s17.387-10.645,27.709-14.427c7.628-2.774,16.241,0.887,18.37,8.242
-		C306.716,364.537,305.12,368.875,300.942,373.528z M273.169,176.123c-23.886,2.096-44.934-15.564-47.031-39.467
-		c-2.08-23.878,15.58-44.934,39.467-47.014c23.87-2.097,44.934,15.58,47.015,39.458
-		C314.716,152.979,297.039,174.043,273.169,176.123z"/>
-            </svg>
-          </div>
-
-          <div class="accordion-panel">
-            <p class="left-align" style="margin:10px 0; text-align:justify; font-size: 1.1rem;">
-Abkhazian songs are structurally similar to Georgian songs, as they also feature two- and three-voiced 
-polyphony. However, differences in language and vocal style give Abkhazian folk music its unique character.
- Stylistically, it aligns more closely with Mingrelian choral singing, 
- often marked by high-pitched shout-like or scream-like vocal elements
-In terms of sound, Abkhazian folk music stands apart. 
-While Georgian singing often follows harmonic patterns based on fifths or seconds, 
-Abkhazian songs may break from this structure—featuring wider descending intervals, 
-such as a sixth, and occasionally adding a fourth voice between the top and middle, 
-a configuration not found in Georgian traditions.
-            </p>
-
-            <p class="left-align" style="margin:10px 0; text-align:justify; font-size: 1.1rem;">
-Ossetian folk songs are typically arranged in two or three voices. The sound has its own strong character. 
-It resembles the eastern Georgian tradition, especially in mountainous traits—such as loud, 
-chest-driven singing, shout-like expression, and round-dance forms. 
-It also shares similarities with North Caucasian sound traditions due to its location near North 
-Ossetia on the northern side of the Greater Caucasus, a region with its own diverse folk music tradition.
-            </p>
-            
-          </div>
-          
-        </div>
-        
-      </div>
-      
-    </section>
-
-    <!-- Panel 3: Tonal Chart -->
-    <section id="panel-tonal" role="tabpanel" aria-labelledby="tab-tonal" tabindex="0" data-active="false">
-      <div class="panel-content">
-        <h2></h2>
-
-        <p class="left-align" style="margin-top: 70px; margin-bottom: 0px; text-align:justify; font-size: 1.3rem;">
-          In traditional practice, Georgian singers perform using non-tempered harmony.
-          Below is an interactive chart that allows to compare the standard 12-TET (twelve-tone equal temperament) 
-          tuning system with the measured Georgian scale, allowing to hear the difference instantly.
-        </p>
-
-        <div class="accordion-block">
-          <div class="accordion-header tonal-icon-header">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 550 550"
-              style="display:block; color:#7c9f8f; cursor:pointer;"
-            >
-              <path fill="currentColor"
-                d="M255.992,0.008C114.626,0.008,0,114.626,0,256s114.626,255.992,255.992,255.992
-		C397.391,511.992,512,397.375,512,256S397.391,0.008,255.992,0.008z M300.942,373.528c-10.355,11.492-16.29,18.322-27.467,29.007
-		c-16.918,16.177-36.128,20.484-51.063,4.516c-21.467-22.959,1.048-92.804,1.597-95.449c4.032-18.564,12.08-55.667,12.08-55.667
-		s-17.387,10.644-27.709,14.419c-7.613,2.782-16.225-0.871-18.354-8.234c-1.984-6.822-0.404-11.161,3.774-15.822
-		c10.354-11.484,16.289-18.314,27.467-28.999c16.934-16.185,36.128-20.483,51.063-4.524c21.467,22.959,5.628,60.732,0.064,87.497
-		c-0.548,2.653-13.742,63.627-13.742,63.627s17.387-10.645,27.709-14.427c7.628-2.774,16.241,0.887,18.37,8.242
-		C306.716,364.537,305.12,368.875,300.942,373.528z M273.169,176.123c-23.886,2.096-44.934-15.564-47.031-39.467
-		c-2.08-23.878,15.58-44.934,39.467-47.014c23.87-2.097,44.934,15.58,47.015,39.458
-		C314.716,152.979,297.039,174.043,273.169,176.123z"/>
-            </svg>
-          </div>
-
-          <div class="accordion-panel">
-            <p class="left-align" style="text-align:justify; margin: 0;">
-              This tool can be helpful if you are learning to sing Georgian traditional songs 
-              and wish to follow their authentic sound. Besides, if you plan to transcribe
-              Georgian songs using the 12-TET system, the chart can help you identify notes
-              from the Georgian tuning that do not align with standard piano pitches. It may
-              be useful for singers, producers, and choir directors alike. Finally, it helps
-              explain why Georgian singing can sometimes sound “out of tune” to those
-              accustomed to Western tuning.
-            </p>
-          </div>
-        </div>
-
-        <p class="left-align" style="margin-top: 70px; margin-bottom: 0px; text-align:justify; font-size: 1.3rem;"> 
-          Outer ring shows Western 12-TET notes, and the inner ring 
-          displays Georgian tuning in cents. Use the arc-shaped buttons below to hear either full scale or individual notes by pressing the labeled sections.
-        </p>
-
-        <!-- (optional) legend caption; you can fill or leave empty -->
-        <p class="left-align chart-legend"></p>
-<div id="tonalwrap-container" style="
-       width: 1200px;        /* control width */
-       height: auto;        /* let SVG keep aspect ratio */
-       margin: 40px auto;   /* center horizontally + vertical spacing */
-       transform: translateX(-220px) translateY(0px); /* move on x / y */
-     ">
-        <div id="tonalChart-wrap" aria-label="Tonal chart tuning comparator"></div>
-</div>
-        <!-- restore “Play Sequence” helper lines + label -->
-        <!-- line 1 -->
-        <div class="legend-line" style="left:290px; top:830px; background:#6a6464ff; width:130px; transform:rotate(-210deg);"></div>
-        <!-- line 2 -->
-        <div class="legend-line" style="left:260px; top:830px; background:#6a6464ff; width:70px; transform:rotate(110deg);"></div>
-        <!-- label -->
-        <div class="legend-label" style="left:185px; top:860px; font-size: 1.2rem;">Play Sequence</div>
-
-        <p class="left-align" style="margin-top: 140px; margin-bottom: 80px; text-align:justify; font-size: 1.3rem;">
-          There is an ongoing debate about the existence of a distinct Georgian tuning system. 
-          The tuning measurements in the chart above is based on nine harmonic scale degrees identified in the study
-          <a href="https://publishup.uni-potsdam.de/frontdoor/index/index/docId/65227" target="_blank" 
-            style="color:#3a6040; text-decoration:none;font-weight:bold;"> 
-            “Tuning Systems of Traditional Georgian Singing Determined from a New Corpus of Field Recordings”</a> 
-          (Universität Potsdam, International Audio Laboratories Erlangen, and the State Folk Centre of Georgia, 2022).
-          The study draws on data from the
-          <a href="https://www.audiolabs-erlangen.de/fau/professor/mueller/projects/gvm" target="_blank" 
-            style="color:#3a6040; text-decoration:none;font-weight:bold;"> 
-            Computational Analysis of Traditional Georgian Vocal Music (GVM)</a> project, conducted in 2016 mainly in Upper Svaneti. 
-          The corpus includes recordings from Svaneti (14 choirs), Racha (2), Guria (2), and Tbilisi (1). 
-          The Svaneti tuning closely matches the one found earlier in the 
-          <a href="https://www.audiolabs-erlangen.de/resources/MIR/2019-GeorgianMusic-Erkomaishvili" target="_blank" 
-            style="color:#3a6040; text-decoration:none;font-weight:bold;">
-            Erkomaishvili dataset</a> (Scherbaum et al., 2020), showing clear consistency.
-          The chart reflects the average harmonic interval distribution observed in the study. 
-          Svaneti’s geographic isolation in the high Caucasus has helped preserve its language and singing style, 
-          which may represent one of the most authentic forms of Georgian vocal tradition.
-          The authors emphasize that their analysis is descriptive rather than evaluative, aiming simply to document measurable aspects of current Georgian vocal 
-          practices in an unbiased way.
-        </p>
-      </div>
-      <p class="left-align chart-instr" style="text-align:justify; margin-bottom: 40px;"></p>
-    </section>
-  </main>
-
-
-
-
-
-
-
-  <!-- Fixed custom audio player -->
-<div id="audio-player-container" class="audio-player">
-
-  <div class="audio-inner">
-    
-  
-    <div class="audio-border-wrap">
-      
-      <audio id="custom-audio"></audio>
-
-      <div class="audio-controls">
-        <button id="audio-play" type="button" aria-label="Play">▶</button>
-        <button id="close-player" class="audio-close" aria-label="Close player">×</button>
-
-        <input id="audio-seek" type="range" min="0" value="0" step="0.1" />
-
-        <span id="audio-time">0:00</span>
-
-        <button id="audio-mute" type="button" aria-label="Mute">
-          <svg width="60" height="60" viewBox="0 0 24 24">
-            <path fill="currentColor"
-              d="M3 9v6h4l5 5V4L7 9H3zm9-3.5v2.1c1.77.77 3 2.52 3 4.4s-1.23 3.63-3 
-              4.4v2.1c2.89-.86 5-3.54 5-6.5s-2.11-5.64-5-6.5z"/>
-          </svg>
+      <nav class="tablist" role="tablist" aria-label="Sections">
+        <button
+          role="tab"
+          id="tab-info"
+          aria-controls="panel-info"
+          aria-selected="true"
+        >
+          About
         </button>
-
-        <input id="audio-volume" type="range" min="0" max="1" value="1" step="0.01" aria-label="Volume" />
-      </div>
+        <button
+          role="tab"
+          id="tab-map"
+          aria-controls="panel-map"
+          aria-selected="false"
+        >
+          Map
+        </button>
+        <button
+          role="tab"
+          id="tab-tuning"
+          aria-controls="panel-tuning"
+          aria-selected="false"
+        >
+          Tuning Chart
+        </button>
+      </nav>
     </div>
 
-    <!-- Now Playing accordion (NO .accordion-header here, so no triangle) -->
-    <div class="accordion-block" style="margin: 0 0 0px 20px;">
-      <div id="now-playing" class="audio-now audio-nowplaying">Now Playing…</div>
+    <main class="panels">
+      <section
+        id="panel-info"
+        role="tabpanel"
+        aria-labelledby="tab-info"
+        tabindex="0"
+        data-active="true"
+      >
+        <div class="panel-content">
+          <p
+            class="left-align"
+            style="
+              margin-top: 70px;
+              margin-bottom: 10px;
+              text-align: justify;
+              font-size: 1.3rem;
+            "
+          >
+            The website provides an overview of the sound features of traditional
+            folk music from the Republic of Georgia and allows users to explore
+            its regional variations through visualizations. It also offers an
+            opportunity to hear the musical scale traditionally used and still
+            maintained by local singers.
+          </p>
 
-      <div id="now-playing-panel" class="accordion-panel">
-        <div id="now-playing-more" class="audio-description"></div>
-      </div>
-    </div>
+          <p
+            class="left-align"
+            style="margin-bottom: 20px; text-align: justify; font-size: 1.3rem"
+          >
+            Use the tabs above to navigate the site and access an interactive
+            map and chart that allow to hear folk songs from different regions
+            of Georgia, along with the tuning harmonies typical of traditional
+            Georgian music.
+          </p>
 
-    <div class="audio-accordion">
-      <div class="accordion-block">
-        <!-- <p id="song-info" class="left-align" style="text-align:justify; margin-bottom: 0px;"></p> -->
+          <p
+            class="left-align"
+            style="margin-bottom: 30px; text-align: justify; font-size: 1.3rem"
+          >
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+              style="
+                vertical-align: -23px;
+                margin-left: -65px;
+                color: #628374;
+                cursor: pointer;
+              "
+            >
+              <path
+                fill="currentColor"
+                d="M3 9v6h4l5 5V4L7 9H3zm9-3.5v2.1c1.77.77 3 2.52 3 4.4s-1.23 3.63-3 4.4v2.1c2.89-.86 5-3.54 5-6.5s-2.11-5.64-5-6.5z"
+              />
+            </svg>
+            The full experience of this site requires sound. Please make sure
+            your audio is on.
+          </p>
 
-        <div class="accordion-header" id="audio-accordion-header">Region details</div>
-        <div class="accordion-panel">
-          <div id="region-description" class="audio-description"></div>
+          <h4>About Georgian Traditional Folk Music</h4>
+          <p class="left-align" style="text-align: justify">
+            Georgian traditional music is polyphonic and typically performed in
+            three voices. It is widespread across Georgia in the South Caucasus.
+            While three-part singing is most common, there are also examples of
+            two- and four-voice songs. Many songs are performed by large choirs,
+            which usually require at least seven singers. Some choir pieces are
+            antiphonal, with the ensemble divided into two groups that alternate
+            parts of the song. At the same time, trios and solo pieces are also
+            part of the tradition, and many songs are accompanied by
+            instruments.
+          </p>
+
+          <p class="left-align" style="text-align: justify">
+            In Georgian multipart singing, each vocal part has a conventional
+            name that reflects its pitch range, vocal quality, and function
+            within the ensemble. Singers commonly refer to these parts using
+            simple ordinal numbers.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Pirveli</strong> (“first”) refers to the highest voice,
+              roughly comparable to a soprano.
+            </li>
+            <li>
+              <strong>Meore</strong> ("second") usually falls within the alto
+              range and often carries the solo line and main melody.
+            </li>
+            <li>
+              <strong>Bani</strong> is the Georgian term for the bass voice and
+              represents the lowest part, performed either by a single singer or
+              by a group.
+            </li>
+          </ul>
+
+          <p class="left-align" style="text-align: justify">
+            In addition to these, there are specialized vocal styles such as
+            "<strong>Krimanchuli</strong>" (<i>krimančuli</i>) which is
+            equivalent to yodeling, and "<strong>Gamkivani</strong>"
+            (<i>gamk’ivani</i>) — a register between yodeling and chest voice.
+          </p>
+
+          <h4>Geographical Context of Georgian Folk Music</h4>
+          <p class="left-align" style="text-align: justify">
+            <a
+              href="https://en.wikipedia.org/wiki/Georgia_(country)"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Georgia</a
+            >
+            is located in the
+            <a
+              href="https://en.wikipedia.org/wiki/South_Caucasus"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >South Caucasus</a
+            >
+            and extends east to west. It is situated between the
+            <a
+              href="https://en.wikipedia.org/wiki/Greater_Caucasus"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Greater Caucasus</a
+            >
+            mountains to the north and the
+            <a
+              href="https://en.wikipedia.org/wiki/Lesser_Caucasus"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Lesser Caucasus</a
+            >
+            mountains to the south. The southern slopes of the Greater Caucasus
+            form the highest parts of the country, which gradually descend into
+            plains toward the center before rising again into the plateaus of
+            the Lesser Caucasus.
+          </p>
+
+          <p class="left-align" style="text-align: justify">
+            Most importantly, Georgia is divided into <strong>Eastern</strong>
+            and <strong>Western</strong> parts by the
+            <a
+              href="https://en.wikipedia.org/wiki/Likhi_Range"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Likhi</a
+            >
+            mountain range, which runs north to south. This range functions as a
+            natural boundary — first by creating climatic differences and acting
+            as a watershed between the
+            <a
+              href="https://en.wikipedia.org/wiki/Black_Sea"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Black Sea</a
+            >
+            and
+            <a
+              href="https://en.wikipedia.org/wiki/Caspian_Sea"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Caspian Sea</a
+            >
+            basins, and second by serving as the country’s major cultural
+            divide.
+          </p>
+
+          <p class="left-align" style="text-align: justify">
+            Cultural elements shaped by geography include language and accent,
+            traditional dress, cuisine, and other social customs. Singing and
+            dancing are also part of these distinctions. Most Georgians can
+            easily distinguish between westerners and easterners by their
+            speech, behavior, and sometimes even appearance. Westerners are
+            often described as livelier and more energetic, while easterners are
+            seen as more composed and prudent.
+          </p>
+
+          <p class="left-align" style="text-align: justify">
+            Besides, the country’s physical landscape, together with
+            socio-political factors, shaped the early formation of political and
+            administrative divisions, which laid the foundation for Georgia’s
+            historical regions around the 9th century. Today, Georgia comprises
+            about 20 historical regions.
+          </p>
+
+          <h4>Linguistic Context of Georgian Folk Music</h4>
+          <p class="left-align" style="text-align: justify">
+            Folk songs in Georgia are performed in six different languages:
+            <a
+              href="https://en.wikipedia.org/wiki/Georgian_language"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Georgian</a
+            >,
+            <a
+              href="https://en.wikipedia.org/wiki/Mingrelian_language"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Mingrelian</a
+            >,
+            <a
+              href="https://en.wikipedia.org/wiki/Svan_language"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Svan</a
+            >,
+            <a
+              href="https://en.wikipedia.org/wiki/Laz_language"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Laz</a
+            >,
+            <a
+              href="https://en.wikipedia.org/wiki/Abkhaz_language"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Abkhazian</a
+            >, and
+            <a
+              href="https://en.wikipedia.org/wiki/Ossetian_language"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Ossetian</a
+            >.
+          </p>
+
+          <p class="left-align" style="text-align: justify">
+            Two of these languages – Abkhazian and Ossetian – belong to the
+            <a
+              href="https://en.wikipedia.org/wiki/Northwest_Caucasian_languages"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Northwest Caucasian</a
+            >
+            and
+            <a
+              href="https://en.wikipedia.org/wiki/Indo-European_languages"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Indo-European</a
+            >
+            language families. The regions where they are spoken are inhabited
+            by Abkhazians and Ossetians, non-Georgian ethnic groups who
+            historically lived within the Georgian kingdom but whose territories
+            are not administered by Georgia today. Because of long-standing
+            cultural, geographical, and historical ties, their folk singing
+            traditions are included alongside Georgian ones in this overview.
+          </p>
+
+          <p class="left-align" style="text-align: justify">
+            The remaining four – Georgian, Mingrelian, Laz, and Svan – belong to
+            the
+            <a
+              href="https://en.wikipedia.org/wiki/Kartvelian_languages"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+              >Kartvelian</a
+            >
+            (South Caucasian) language family, with Georgian serving as the
+            dominant and most widely spoken language.
+          </p>
+
+          <ul>
+            <li style="list-style-type: disc">
+              Mingrelian and Laz form the
+              <a
+                href="https://en.wikipedia.org/wiki/Zan_languages"
+                target="_blank"
+                style="
+                  color: #3a6040;
+                  text-decoration: none;
+                  font-weight: bold;
+                "
+                >Zan</a
+              >
+              subgroup.
+            </li>
+            <li style="list-style-type: circle; margin-left: 1.5rem">
+              <i>Mingrelian</i> is spoken in Samegrelo, a central-western region
+              along the Black Sea.
+            </li>
+            <li style="list-style-type: circle; margin-left: 1.5rem">
+              <i>Laz</i>, on the other hand, is spoken in
+              <a
+                href="https://en.wikipedia.org/wiki/Lazistan"
+                target="_blank"
+                style="
+                  color: #3a6040;
+                  text-decoration: none;
+                  font-weight: bold;
+                "
+                >Lazistan</a
+              >, further southwest in the Lesser Caucasus, now within modern-day
+              Turkey. Laz songs are not included in this project but may be
+              added in future expansions.
+            </li>
+            <li style="list-style-type: disc">
+              Svan is spoken in the highland region of Svaneti, in Northwestern
+              Georgia. It is considered the most archaic Kartvelian language,
+              preserving features that have disappeared from Georgian,
+              Mingrelian, and Laz.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        id="panel-map"
+        role="tabpanel"
+        aria-labelledby="tab-map"
+        tabindex="0"
+        data-active="false"
+      >
+        <div class="panel-content">
+          <h2></h2>
+
+          <p
+            class="left-align"
+            style="
+              margin-top: 70px;
+              margin-bottom: 40px;
+              text-align: justify;
+              font-size: 1.3rem;
+            "
+          >
+            The interactive map below allows you to explore traditional Georgian
+            folk songs in relation to their regional origins. The map is divided
+            into historical regions of Georgia. Each historical region on the
+            map can be selected to play a song from that region. This makes it
+            possible to hear the stylistic features specific to each area.
+          </p>
+
+          <div class="panel-content">
+            <h4>Distribution of folk music tradition</h4>
+
+            <img
+              src="img/likhi_map.png"
+              alt="Physical map of Georgia showing the geographic division between the eastern and western regions of the country"
+              style="
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin: 0 auto 12px;
+              "
+            />
+
+            <p class="left-align" style="text-align: justify">
+              Traditional music in Georgia varies throughout the country, with
+              most regions having their own distinctive styles. The
+              classification of these styles is rooted in local oral
+              traditions, and the most common division is between
+              <strong>East</strong> and <strong>West</strong>.
+            </p>
+
+            <ul>
+              <li>
+                <strong>Western</strong> tradition — includes songs from the
+                regions located west of the Likhi watershed ridge. These songs
+                are marked by a livelier and more dynamic tuning character,
+                with all three voices often carrying independent melodies while
+                remaining harmonious.
+              </li>
+              <li>
+                <strong>Eastern</strong> tradition — encompasses the regions
+                east of the watershed. Folk music from Eastern Georgia is
+                generally more drone-based, with the middle voice leading and
+                featuring fluid, ornamental, and melismatic elements.
+              </li>
+            </ul>
+
+            <p class="left-align" style="text-align: justify">
+              The sound also differs between the northern highlands (Greater
+              Caucasus) and the southern plains (Lesser Caucasus).<br />
+            </p>
+
+            <p class="left-align" style="text-align: justify">
+              The map also groups regions, highlighting areas where musical
+              traditions share similar characteristics. This grouping is
+              entirely conceptual and is intended to emphasize stylistic
+              similarities in folk music among regions brought together under
+              these constructed geographical labels.<br />
+            </p>
+
+            <p class="left-align" style="text-align: justify">
+              The <strong>Northwestern</strong> grouping brings together regions
+              located in the northwestern highlands, such as Svaneti, Racha, and
+              Lechkhumi, which—while distinct—share similar singing practices
+              and traditions, including full-voiced singing with pitch slides
+              and the use of round dances.
+            </p>
+
+            <p class="left-align" style="text-align: justify; margin-bottom: 50px">
+              Likewise, <strong>Northeastern</strong> includes several diverse
+              regions — Khevi, Khevsureti, Mtiuleti, Pshavi, and Tusheti — that
+              also share common traits in their folk music, such as a dominance
+              of two-part and drone-based singing, performed in a subtle, nasal,
+              and raw manner, with a stronger emphasis on poetry and solo
+              singing.
+            </p>
+
+            <p class="left-align" style="text-align: justify">
+              Georgia’s complex terrain - marked by mountains, valleys, and
+              limited road access - has contributed to the development of
+              distinct vocal styles across its regions. In general, song tempo
+              begins at a slower pace in the east and gradually becomes faster
+              and more energetic toward the west.
+            </p>
+
+            <p class="left-align" style="text-align: justify">
+              - Eastern traditions tend to feature extended vowel sounds and
+              rich melismas.<br />
+              - As one moves toward central regions like Kartli and Imereti, the
+              pace quickens and the singing becomes more syllabic and lively,
+              resulting in the most rapid-paced songs in western areas such as
+              Guria and Achara.<br />
+              - In the northern highlands, the style shifts again: songs are
+              typically sung with greater vocal power, using open,
+              full-throated techniques that reflect the mountainous
+              environment.<br />
+              - Southern Georgia, by contrast, maintains vocal traits more in
+              line with eastern practices.
+            </p>
+
+            <p class="left-align" style="text-align: justify">
+              For more detailed insights into each province and macroregion,
+              explore the interactive map below.
+            </p>
+          </div>
+
+          <div
+            id="map-container"
+            style="
+              width: 900px;
+              height: auto;
+              margin: 40px auto;
+              transform: translateX(-150px) translateY(0px);
+            "
+          >
+            <div id="map-root"></div>
+          </div>
+
+          <div id="map-tooltip" style="position: absolute; display: none"></div>
+
+          <div
+            style="
+              display: flex;
+              align-items: flex-start;
+              gap: 12px;
+              margin-top: 10px;
+            "
+          >
+            <span
+              style="
+                display: inline-block;
+                width: 195px;
+                height: 35px;
+                background: #b3b3b3;
+                margin-right: 10px;
+                margin-left: -90px;
+                border-radius: 0px;
+                border: 1px solid #8a8686;
+                vertical-align: middle;
+              "
+            ></span>
+
+            <p
+              class="left-align"
+              style="margin: 10px 0; text-align: justify; font-size: 1.3rem"
+            >
+              Abkhazia and Samachablo (South Ossetia) are shown in grey to
+              reflect their current separation from Georgia. Although these
+              regions have different ethnic and linguistic identities, their
+              historical inclusion within Georgian statehood and their place in
+              the wider Caucasus cultural landscape have contributed to
+              similarities in vocal traditions shared with other parts of
+              Georgia.
+            </p>
+          </div>
+
+          <div class="accordion-block">
+            <div class="accordion-header tuning-icon-header2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 550 550"
+                style="display: block; color: #7c9f8f; cursor: pointer"
+              >
+                <path
+                  fill="currentColor"
+                  d="M255.992,0.008C114.626,0.008,0,114.626,0,256s114.626,255.992,255.992,255.992
+		C397.391,511.992,512,397.375,512,256S397.391,0.008,255.992,0.008z M300.942,373.528c-10.355,11.492-16.29,18.322-27.467,29.007
+		c-16.918,16.177-36.128,20.484-51.063,4.516c-21.467-22.959,1.048-92.804,1.597-95.449c4.032-18.564,12.08-55.667,12.08-55.667
+		s-17.387,10.644-27.709,14.419c-7.613,2.782-16.225-0.871-18.354-8.234c-1.984-6.822-0.404-11.161,3.774-15.822
+		c10.354-11.484,16.289-18.314,27.467-28.999c16.934-16.185,36.128-20.483,51.063-4.524c21.467,22.959,5.628,60.732,0.064,87.497
+		c-0.548,2.653-13.742,63.627-13.742,63.627s17.387-10.645,27.709-14.427c7.628-2.774,16.241,0.887,18.37,8.242
+		C306.716,364.537,305.12,368.875,300.942,373.528z M273.169,176.123c-23.886,2.096-44.934-15.564-47.031-39.467
+		c-2.08-23.878,15.58-44.934,39.467-47.014c23.87-2.097,44.934,15.58,47.015,39.458
+		C314.716,152.979,297.039,174.043,273.169,176.123z"
+                />
+              </svg>
+            </div>
+
+            <div class="accordion-panel">
+              <p
+                class="left-align"
+                style="margin: 10px 0; text-align: justify; font-size: 1.1rem"
+              >
+                Abkhazian songs are structurally similar to Georgian songs, as
+                they also feature two- and three-voiced polyphony. However,
+                differences in language and vocal style give Abkhazian folk
+                music its unique character. Stylistically, it aligns more
+                closely with Mingrelian choral singing, often marked by
+                high-pitched shout-like or scream-like vocal elements In terms
+                of sound, Abkhazian folk music stands apart. While Georgian
+                singing often follows harmonic patterns based on fifths or
+                seconds, Abkhazian songs may break from this structure—featuring
+                wider descending intervals, such as a sixth, and occasionally
+                adding a fourth voice between the top and middle, a
+                configuration not found in Georgian traditions.
+              </p>
+
+              <p
+                class="left-align"
+                style="margin: 10px 0; text-align: justify; font-size: 1.1rem"
+              >
+                Ossetian folk songs are typically arranged in two or three
+                voices. The sound has its own strong character. It resembles
+                the eastern Georgian tradition, especially in mountainous
+                traits—such as loud, chest-driven singing, shout-like
+                expression, and round-dance forms. It also shares similarities
+                with North Caucasian sound traditions due to its location near
+                North Ossetia on the northern side of the Greater Caucasus, a
+                region with its own diverse folk music tradition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="panel-tuning"
+        role="tabpanel"
+        aria-labelledby="tab-tuning"
+        tabindex="0"
+        data-active="false"
+      >
+        <div class="panel-content">
+          <h2></h2>
+
+          <p
+            class="left-align"
+            style="margin-top: 70px; margin-bottom: 0px; text-align: justify; font-size: 1.3rem"
+          >
+            In traditional practice, Georgian singers perform using non-tempered
+            harmony. Below is an interactive chart that allows to compare the
+            standard 12-TET (twelve-tone equal temperament) tuning system with
+            the measured Georgian scale, allowing to hear the difference
+            instantly.
+          </p>
+
+          <div class="accordion-block">
+            <div class="accordion-header tuning-icon-header">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 550 550"
+                style="display: block; color: #7c9f8f; cursor: pointer"
+              >
+                <path
+                  fill="currentColor"
+                  d="M255.992,0.008C114.626,0.008,0,114.626,0,256s114.626,255.992,255.992,255.992
+		C397.391,511.992,512,397.375,512,256S397.391,0.008,255.992,0.008z M300.942,373.528c-10.355,11.492-16.29,18.322-27.467,29.007
+		c-16.918,16.177-36.128,20.484-51.063,4.516c-21.467-22.959,1.048-92.804,1.597-95.449c4.032-18.564,12.08-55.667,12.08-55.667
+		s-17.387,10.644-27.709,14.419c-7.613,2.782-16.225-0.871-18.354-8.234c-1.984-6.822-0.404-11.161,3.774-15.822
+		c10.354-11.484,16.289-18.314,27.467-28.999c16.934-16.185,36.128-20.483,51.063-4.524c21.467,22.959,5.628,60.732,0.064,87.497
+		c-0.548,2.653-13.742,63.627-13.742,63.627s17.387-10.645,27.709-14.427c7.628-2.774,16.241,0.887,18.37,8.242
+		C306.716,364.537,305.12,368.875,300.942,373.528z M273.169,176.123c-23.886,2.096-44.934-15.564-47.031-39.467
+		c-2.08-23.878,15.58-44.934,39.467-47.014c23.87-2.097,44.934,15.58,47.015,39.458
+		C314.716,152.979,297.039,174.043,273.169,176.123z"
+                />
+              </svg>
+            </div>
+
+            <div class="accordion-panel">
+              <p class="left-align" style="text-align: justify; margin: 0">
+                This tool can be helpful if you are learning to sing Georgian
+                traditional songs and wish to follow their authentic sound.
+                Besides, if you plan to transcribe Georgian songs using the
+                12-TET system, the chart can help you identify notes from the
+                Georgian tuning that do not align with standard piano pitches.
+                It may be useful for singers, producers, and choir directors
+                alike. Finally, it helps explain why Georgian singing can
+                sometimes sound “out of tune” to those accustomed to Western
+                tuning.
+              </p>
+            </div>
+          </div>
+
+          <p
+            class="left-align"
+            style="margin-top: 70px; margin-bottom: 0px; text-align: justify; font-size: 1.3rem"
+          >
+            Outer ring shows Western 12-TET notes, and the inner ring displays
+            Georgian tuning in cents. Use the arc-shaped buttons below to hear
+            either full scale or individual notes by pressing the labeled
+            sections.
+          </p>
+
+          <p class="left-align chart-legend"></p>
+
+          <div
+            id="tuningwrap-container"
+            style="
+              width: 1200px;
+              height: auto;
+              margin: 40px auto;
+              transform: translateX(-220px) translateY(0px);
+            "
+          >
+            <div
+              id="tuningChart-wrap"
+              aria-label="Tuning chart tuning comparator"
+            ></div>
+          </div>
+
+          <div
+            class="legend-line"
+            style="
+              left: 290px;
+              top: 830px;
+              background: #6a6464ff;
+              width: 130px;
+              transform: rotate(-210deg);
+            "
+          ></div>
+
+          <div
+            class="legend-line"
+            style="
+              left: 260px;
+              top: 830px;
+              background: #6a6464ff;
+              width: 70px;
+              transform: rotate(110deg);
+            "
+          ></div>
+
+          <div
+            class="legend-label"
+            style="left: 185px; top: 860px; font-size: 1.2rem"
+          >
+            Play Sequence
+          </div>
+
+          <p
+            class="left-align"
+            style="
+              margin-top: 140px;
+              margin-bottom: 80px;
+              text-align: justify;
+              font-size: 1.3rem;
+            "
+          >
+            There is an ongoing debate about the existence of a distinct
+            Georgian tuning system. The tuning measurements in the chart above
+            is based on nine harmonic scale degrees identified in the study
+            <a
+              href="https://publishup.uni-potsdam.de/frontdoor/index/index/docId/65227"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+            >
+              “Tuning Systems of Traditional Georgian Singing Determined from a
+              New Corpus of Field Recordings”</a
+            >
+            (Universität Potsdam, International Audio Laboratories Erlangen, and
+            the State Folk Centre of Georgia, 2022). The study draws on data
+            from the
+            <a
+              href="https://www.audiolabs-erlangen.de/fau/professor/mueller/projects/gvm"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+            >
+              Computational Analysis of Traditional Georgian Vocal Music
+              (GVM)</a
+            >
+            project, conducted in 2016 mainly in Upper Svaneti. The corpus
+            includes recordings from Svaneti (14 choirs), Racha (2), Guria (2),
+            and Tbilisi (1). The Svaneti tuning closely matches the one found
+            earlier in the
+            <a
+              href="https://www.audiolabs-erlangen.de/resources/MIR/2019-GeorgianMusic-Erkomaishvili"
+              target="_blank"
+              style="color: #3a6040; text-decoration: none; font-weight: bold"
+            >
+              Erkomaishvili dataset</a
+            >
+            (Scherbaum et al., 2020), showing clear consistency. The chart
+            reflects the average harmonic interval distribution observed in the
+            study. Svaneti’s geographic isolation in the high Caucasus has
+            helped preserve its language and singing style, which may represent
+            one of the most authentic forms of Georgian vocal tradition. The
+            authors emphasize that their analysis is descriptive rather than
+            evaluative, aiming simply to document measurable aspects of current
+            Georgian vocal practices in an unbiased way.
+          </p>
+
+          <p
+            class="left-align chart-instr"
+            style="text-align: justify; margin-bottom: 40px"
+          ></p>
+        </div>
+      </section>
+    </main>
+
+    <div id="audio-player-container" class="audio-player">
+      <div class="audio-inner">
+        <div class="audio-border-wrap">
+          <audio id="custom-audio"></audio>
+
+          <div class="audio-controls">
+            <button id="audio-play" type="button" aria-label="Play">▶</button>
+            <button
+              id="close-player"
+              class="audio-close"
+              aria-label="Close player"
+            >
+              ×
+            </button>
+
+            <input id="audio-seek" type="range" min="0" value="0" step="0.1" />
+            <span id="audio-time">0:00</span>
+
+            <button id="audio-mute" type="button" aria-label="Mute">
+              <svg width="60" height="60" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M3 9v6h4l5 5V4L7 9H3zm9-3.5v2.1c1.77.77 3 2.52 3 4.4s-1.23 3.63-3 
+              4.4v2.1c2.89-.86 5-3.54 5-6.5s-2.11-5.64-5-6.5z"
+                />
+              </svg>
+            </button>
+
+            <input
+              id="audio-volume"
+              type="range"
+              min="0"
+              max="1"
+              value="1"
+              step="0.01"
+              aria-label="Volume"
+            />
+          </div>
+        </div>
+
+        <div class="accordion-block" style="margin: 0 0 0px 20px">
+          <div id="now-playing" class="audio-now audio-nowplaying">
+            Now Playing…
+          </div>
+
+          <div id="now-playing-panel" class="accordion-panel">
+            <div id="now-playing-more" class="audio-description"></div>
+          </div>
+        </div>
+
+        <div class="audio-accordion">
+          <div class="accordion-block">
+            <div class="accordion-header" id="audio-accordion-header">
+              Region details
+            </div>
+            <div class="accordion-panel">
+              <div id="region-description" class="audio-description"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.js"></script>
+    <script src="./tabs.js" defer></script>
+    <script src="./map.js" defer></script>
+    <script src="./tuningchart.js" defer></script>
 
-  <!-- Scripts -->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.js"></script>
+    <script>
+      window.addEventListener(
+        "pointerdown",
+        async () => {
+          if (Tone.getContext().state !== "running") {
+            await Tone.start();
+          }
+        },
+        { once: true }
+      );
+    </script>
 
-  <script src="./tabs.js" defer></script>
-  <script src="./map.js" defer></script>
-  <script src="./tonalchart.js" defer></script>
-
-  <script>
-    // Mobile audio: gate the audio context on first interaction
-    window.addEventListener('pointerdown', async () => {
-      if (Tone.getContext().state !== 'running') { await Tone.start(); }
-    }, { once: true });
-  </script>
-    <footer style="text-align: center; padding: 20px; color: #777; font-size: 0.9rem;">
-    © 2026 Alex Kutubidze. All rights reserved.
-  </footer>
-</body>
+    <footer
+      style="text-align: center; padding: 20px; color: #777; font-size: 0.9rem"
+    >
+      © 2026 Alex Kutubidze. All rights reserved.
+    </footer>
+  </body>
 </html>
